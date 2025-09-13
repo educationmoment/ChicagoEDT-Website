@@ -57,9 +57,9 @@ section{ padding:80px 0; }
 
 /* for index */
 .hero { 
-  color:#fff; text-align:center; padding:120px 0; 
+  color:#ff0000; text-align:center; padding:120px 0; 
   /* background:linear-gradient(135deg, rgba(3, 0, 166, 0.95), rgba(0,34,102,.85)), url('assets/hero.jpg') center/cover no-repeat; */
-  background: url('assets/main.jpg') center/cover no-repeat;
+  background: url('assets/winners.jpg') center 25%/cover no-repeat;
   box-shadow:0 8px 32px rgba(0,34,102,.35);
 } 
 .hero h1{ font-size:56px; margin:0 0 14px; }
@@ -127,7 +127,7 @@ footer a{ color:#fff; }
 /* Sidebar gallery placeholder */
 .sidebar{ background:#fafafa; border:1px solid var(--muted); border-radius:var(--radius); padding:16px; }
 .sidebar h4{ margin:0 0 10px; }
-.sidebar .thumb{ background:#ddd; height:400px; border-radius:6px; width: 100%; margin-bottom:8px; }
+.sidebar .thumb{ background:#ddd; height:380px; border-radius:6px; width: 100%; margin-bottom:8px; }
 
 /* Utility */
 .center{text-align:center;}
@@ -137,4 +137,5 @@ footer a{ color:#fff; }
 .justify-center{ justify-content:center; }
 .gap-8{ gap:8px; }
 .mt-16{ margin-top:16px; }
+.mt-16 .img{ background:#ddd; height:380px; border-radius:6px; width: 100%; margin-bottom:8px; }
 .mb-16{ margin-bottom:16px; }
