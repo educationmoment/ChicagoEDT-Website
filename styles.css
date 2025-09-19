@@ -78,7 +78,7 @@ section{ padding:80px 0; }
 /* for air page */
 .hero-air {
   color:#fff; text-align:center; padding:120px 0; 
-  background: url('assets/air.jpg') center/cover no-repeat;
+  background: url('assets/airdroneheader.png') center/cover no-repeat;
   box-shadow:0 8px 32px rgba(0,34,102,.35);
 }
 /* for robobrawl page */
