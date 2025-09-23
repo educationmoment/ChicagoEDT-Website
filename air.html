@@ -64,14 +64,13 @@
 <!-- ============================= -->
 <!-- Flight Videos Start -->
 <!-- ============================= -->
-
 <section id="videos" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
   <style>
     /* Grid container to align left and right columns */
     .videos-grid {
       display: flex;
       gap: 20px; /* spacing between left and right columns */
-      align-items: stretch; /* ensures both columns align vertically */
+      align-items: stretch; /* makes both columns equal height */
     }
 
     /* Column layout */
@@ -79,7 +78,7 @@
     .right-column {
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* evenly space content vertically */
+      justify-content: space-between; /* evenly distribute content vertically */
       width: 100%;
     }
 
@@ -91,12 +90,12 @@
       margin-bottom: 20px;
     }
 
-    /* Removes extra margin at the bottom of the last video */
+    /* Removes extra margin from last video */
     .left-column video:last-child {
       margin-bottom: 0;
     }
 
-    /* Optional: Make the headings look a little nicer */
+    /* Optional: Heading styles */
     .left-column h3,
     .right-column h3 {
       margin-bottom: 15px;
@@ -113,7 +112,7 @@
 
     <div class="grid grid-2 videos-grid">
       
-      <!-- LEFT COLUMN: Two videos stacked -->
+      <!-- LEFT COLUMN: Three videos stacked -->
       <div class="card left-column">
         <h3>Autonomous Flight Test</h3>
         
@@ -125,6 +124,11 @@
         <!-- Second Video -->
         <video controls poster="assets/airTestHexDroneFlying thumbnail.png" muted>
           <source src="assets\airTestHexDroneFlying - noaudio v2.mp4" type="video/mp4">
+        </video>
+
+        <!-- Third Video -->
+        <video controls poster="assets\airHexcopterFlight thumbnailv2.png" muted>
+          <source src="assets\airHexcopterFlight thumbnailv3 - no audio (1).mp4" type="video/mp4">
         </video>
       </div>
 
@@ -139,7 +143,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ============================= -->
 <!-- Flight Videos End  -->
