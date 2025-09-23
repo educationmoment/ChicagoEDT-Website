@@ -66,35 +66,72 @@
 <!-- ============================= -->
 
 <section id="videos" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
+  <style>
+    /* Grid container to align left and right columns */
+    .videos-grid {
+      display: flex;
+      gap: 20px; /* spacing between left and right columns */
+      align-items: stretch; /* ensures both columns align vertically */
+    }
+
+    /* Column layout */
+    .left-column,
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* evenly space content vertically */
+      width: 100%;
+    }
+
+    /* Video styling */
+    .left-column video,
+    .right-column video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* Removes extra margin at the bottom of the last video */
+    .left-column video:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Optional: Make the headings look a little nicer */
+    .left-column h3,
+    .right-column h3 {
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+  </style>
+
   <div class="container-1140">
     <div class="h-section">
       <h2>Flight Videos</h2>
       <div class="divider divider--blue"></div>
     </div>
 
-    <div class="grid grid-2">
+    <div class="grid grid-2 videos-grid">
       
-      <!-- LEFT COLUMN: Multiple videos stacked -->
-      <div class="card center">
+      <!-- LEFT COLUMN: Two videos stacked -->
+      <div class="card left-column">
         <h3>Autonomous Flight Test</h3>
         
         <!-- First Video -->
-        <video width="100%" controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted style="margin-bottom:20px;">
+        <video controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted>
           <source src="assets/AirManualFlight1000ft.mp4" type="video/mp4">
         </video>
 
-        <!-- Second Video or Photo -->
-        <video width="100%" controls poster="assets/AnotherThumbnail.jpg" muted style="margin-bottom:20px;">
-          <source src="assets/AnotherVideo.mp4" type="video/mp4">
+        <!-- Second Video -->
+        <video controls poster="assets/airTestHexDroneFlying thumbnail.png" muted>
+          <source src="assets/airTestHexDroneFlying - noaudio.mp4" type="video/mp4">
         </video>
-
-      
       </div>
 
-      <!-- RIGHT COLUMN: Single Video -->
-      <div class="card center">
+      <!-- RIGHT COLUMN: Single vertical video -->
+      <div class="card right-column">
         <h3>Payload Drop Demo</h3>
-        <video width="100%" controls poster="assets/airwinch.jpg" muted>
+        <video controls poster="assets/airwinch.jpg" muted>
           <source src="assets/2024WinchDropTest.mp4" type="video/mp4">
         </video>
       </div>
@@ -102,6 +139,7 @@
     </div>
   </div>
 </section>
+
 
 <!-- ============================= -->
 <!-- Flight Videos End  -->
