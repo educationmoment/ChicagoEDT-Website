@@ -12,7 +12,7 @@
   <style>
     /* General section spacing */
     section {
-      padding-top: 10px;
+      padding-top: 20px;
       padding-bottom: 10px;
     }
 
@@ -130,69 +130,71 @@
       </div>
     </div>
   </section>
+<section id="videos" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
+  <style>
+    .videos-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center; /* centers the two columns */
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
 
-  <!-- ============================= -->
-  <!-- Flight Videos Start -->
-  <!-- ============================= -->
-  <section id="videos" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
-    <style>
-      .videos-grid {
-        display: flex;
-        gap: 20px;
-        align-items: stretch;
-      }
-      .left-column, .right-column {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-      }
-      .left-column video,
-      .right-column video {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 20px;
-      }
-      .left-column video:last-child {
-        margin-bottom: 0;
-      }
-      .left-column h3,
-      .right-column h3 {
-        margin-bottom: 15px;
-        text-align: center;
-        font-size: 1.2em;
-      }
-    </style>
+    .video-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* centers videos and headings */
+      width: 100%;
+      max-width: 500px;
+    }
 
-    <div class="container-1140">
-      <div class="h-section">
-        <h2>Last Year's Highlights</h2>
-        <div class="divider divider--blue"></div>
+    .video-column h3 {
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 1.2em;
+      background: none;
+    }
+
+    .video-column video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .video-column video:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+
+  <div class="container-1140">
+    <div class="h-section">
+      <h2>Last Year's Highlights</h2>
+      <div class="divider divider--blue"></div>
+    </div>
+
+    <div class="videos-grid">
+      <div class="video-column">
+        <h3>Flight Videos</h3>
+        <video controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted>
+          <source src="assets/AirManualFlight1000ft.mp4" type="video/mp4">
+        </video>
+        <video controls poster="assets/airTestHexDroneFlying thumbnail.png" muted>
+          <source src="assets/airTestHexDroneFlying - noaudio v2.mp4" type="video/mp4">
+        </video>
+        <video controls poster="assets/air niu thumbnail.png" muted>
+          <source src="assets/air niu video.mp4" type="video/mp4">
+        </video>
       </div>
 
-      <div class="grid grid-2 videos-grid">
-        <div class="card left-column">
-          <h3>Flight Videos</h3>
-          <video controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted>
-            <source src="assets/AirManualFlight1000ft.mp4" type="video/mp4">
-          </video>
-          <video controls poster="assets/airTestHexDroneFlying thumbnail.png" muted>
-            <source src="assets/airTestHexDroneFlying - noaudio v2.mp4" type="video/mp4">
-          </video>
-          <video controls poster="assets/air niu thumbnail.png" muted>
-            <source src="assets/air niu video.mp4" type="video/mp4">
-          </video>
-        </div>
-
-        <div class="card right-column">
-          <h3>Payload Drop Demo</h3>
-          <video controls poster="assets/airwinch.jpg" muted>
-            <source src="assets/2024WinchDropTest.mp4" type="video/mp4">
-          </video>
-        </div>
+      <div class="video-column">
+        <h3>Payload Drop Demo</h3>
+        <video controls poster="assets/airwinch.jpg" muted>
+          <source src="assets/2024WinchDropTest.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ============================= -->
   <!-- Sub-Teams Intro - Shaan Begin -->
