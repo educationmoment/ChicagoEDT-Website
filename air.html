@@ -8,13 +8,18 @@
   <title>EDT — AIR</title>
   <link rel="icon" type="image/x-icon" href="assets/logo.ico">
   <link rel="stylesheet" href="./styles.css">
-  <!-- Inline CSS to reduce space between sections -->
+  <!-- Inline CSS to reduce space between sections and cards -->
   <style>
-    /* Reduce space between Team AIR description and Flight Videos */
+    /* General section spacing */
+    section {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    /* Reduce spacing around Team AIR description */
     #pitch {
       margin-bottom: 5px;
     }
-
     #videos {
       padding-top: 5px;
     }
@@ -23,9 +28,58 @@
     #subteams-intro {
       margin-bottom: 5px;
     }
-
     #team {
       padding-top: 5px;
+    }
+
+    /* Reduce spacing between cards in subteam sections */
+    #subteams-intro + section .grid > .card,
+    #aircraft-video .grid > .card,
+    #Optics .grid > .card,
+    #GNC-photo .grid > .card {
+      margin-bottom: 10px;
+      padding: 10px; /* optional: reduce internal padding */
+    }
+
+    /* Reduce spacing between heading and paragraph */
+    #subteams-intro .h-section p,
+    #aircraft-video .h-section p,
+    #Optics .h-section p,
+    #GNC-photo .h-section p {
+      margin-top: 5px;
+    }
+
+    /* Reduce gap between grid columns */
+    .grid {
+      gap: 10px; /* default may be larger */
+    }
+
+    /* Flight videos grid (kept compact) */
+    .videos-grid {
+      display: flex;
+      gap: 15px;
+      align-items: stretch;
+    }
+    .left-column, .right-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .left-column video,
+    .right-column video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .left-column video:last-child {
+      margin-bottom: 0;
+    }
+    .left-column h3,
+    .right-column h3 {
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 1.2em;
     }
   </style>
 </head>
@@ -112,13 +166,13 @@
 
     <div class="container-1140">
       <div class="h-section">
-        <h2>Flight Videos</h2>
+        <h2>Last Year's Highlights</h2>
         <div class="divider divider--blue"></div>
       </div>
 
       <div class="grid grid-2 videos-grid">
         <div class="card left-column">
-          <h3>Autonomous Flight Test</h3>
+          <h3>Flight Videos</h3>
           <video controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted>
             <source src="assets/AirManualFlight1000ft.mp4" type="video/mp4">
           </video>
@@ -177,6 +231,55 @@
       </div>
     </div>
   </section>
+<!-- ============================= --> <!-- 
+ Optics Subteam Paragraph Attempt - Shaan Begin --> <!--
+  ============================= --> 
+  <section id="Optics" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> <div class="container-1140"> 
+    <div class="grid grid-2"> <!-- Left Side: Paragraph --> 
+      <div class="card"> <h2>Optics Team</h2> 
+        <p> The Optics subteam broadly works on the software the drone uses to sense its environment. This typically entails detecting the targets in 
+          unknown locations we have to drop payloads on, creating a top-down map of a specified area like Google Maps, and detecting 
+          other teams’ aircraft so we don’t collide. Our subteam spends our
+          time writing and testing code, including training deep learning
+          models, doing math, and writing algorithms to process the camera images 
+          into usable information for GNC to use to command the drone.
+          </p> </div> <!-- Right Side: Camera Image --> 
+            <div class="card"> 
+              <img src="assets\aircamera.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;"> </div> 
+            </div>
+           </div> 
+          </section> 
+<!-- ============================= --> 
+  <!-- Optics Subteam Paragraph Attempt - Shaan End --> 
+   <!-- ============================= --> 
+   <!-- ============================= --> 
+              
+             
+             
+             <!-- Guidance Navigation & Control Subteam Paragraph Attempt - Shaan Begin --> 
+              
+            <!-- ============================= --> 
+             <section id="GNC-photo" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> 
+              <div class="container-1140"> 
+                <div class="grid grid-2"> 
+                  <!-- Left Side: Guidance Image --> 
+                  <div class="card"> <img src="assets\airGuidance Navigation Controls.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;">
+                   </div> 
+                   <!-- Right Side: Paragraph --> 
+                    <div class="card"> 
+                      <h2>Guidance Navigation & Control Team</h2> 
+                      <p> The Guidance, Navigation, and Control (GNC) Subteam is responsible for the autonomous operation of the drone. 
+                        They solve challenges such as autonomous target navigation and dynamic path planning for mapping unexplored areas.
+                        To enable this functionality, they use the ArduPilot flight controller and configure missions through QGroundControl and Mission Planner. 
+                        They verify and test our software systems through extensive software-in-the-loop simulations using platforms such as Gazebo to ensure reliable and precise autonomous flight. 
+                      </p>
+                     </div> 
+                    </div> 
+                  </div> 
+                </section> 
+                <!-- ============================= --> 
+                 <!-- Guidance Navigation & Control Subteam Paragraph Attempt - Shaan End --> 
+                  <!-- ============================= -->
 
   <!-- ============================= -->
   <!-- Team Leadership Section -->
