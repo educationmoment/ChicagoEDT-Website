@@ -8,6 +8,26 @@
   <title>EDT — AIR</title>
   <link rel="icon" type="image/x-icon" href="assets/logo.ico">
   <link rel="stylesheet" href="./styles.css">
+  <!-- Inline CSS to reduce space between sections -->
+  <style>
+    /* Reduce space between Team AIR description and Flight Videos */
+    #pitch {
+      margin-bottom: 5px;
+    }
+
+    #videos {
+      padding-top: 5px;
+    }
+
+    /* Reduce spacing between Our Sub-Teams and Team Leadership */
+    #subteams-intro {
+      margin-bottom: 5px;
+    }
+
+    #team {
+      padding-top: 5px;
+    }
+  </style>
 </head>
 <body id="top">
   <header class="navbar">
@@ -25,7 +45,6 @@
     </div>
   </header>
 
-
   <section class="hero-air pt-hero hero--primary">
     <div class="container-1140">
       <h1>AIR</h1>
@@ -37,11 +56,9 @@
     </div>
   </section>
 
-<!-- ============================= -->
-<!-- Solgan + team air description-->
-<!-- ============================= -->
-
-
+  <!-- ============================= -->
+  <!-- Solgan + team air description-->
+  <!-- ============================= -->
   <section id="pitch">
     <div class="container-1140">
       <div class="h-section">
@@ -60,280 +77,124 @@
     </div>
   </section>
 
+  <!-- ============================= -->
+  <!-- Flight Videos Start -->
+  <!-- ============================= -->
+  <section id="videos" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
+    <style>
+      .videos-grid {
+        display: flex;
+        gap: 20px;
+        align-items: stretch;
+      }
+      .left-column, .right-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .left-column video,
+      .right-column video {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      .left-column video:last-child {
+        margin-bottom: 0;
+      }
+      .left-column h3,
+      .right-column h3 {
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 1.2em;
+      }
+    </style>
 
-<!-- ============================= -->
-<!-- Flight Videos Start -->
-<!-- ============================= -->
-<section id="videos" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
-  <style>
-    /* Grid container to align left and right columns */
-    .videos-grid {
-      display: flex;
-      gap: 20px; /* spacing between left and right columns */
-      align-items: stretch; /* makes both columns equal height */
-    }
-
-    /* Column layout */
-    .left-column,
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; /* evenly distribute content vertically */
-      width: 100%;
-    }
-
-    /* Video styling */
-    .left-column video,
-    .right-column video {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-
-    /* Removes extra margin from last video */
-    .left-column video:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Optional: Heading styles */
-    .left-column h3,
-    .right-column h3 {
-      margin-bottom: 15px;
-      text-align: center;
-      font-size: 1.2em;
-    }
-  </style>
-
-  <div class="container-1140">
-    <div class="h-section">
-      <h2>Flight Videos</h2>
-      <div class="divider divider--blue"></div>
-    </div>
-
-    <div class="grid grid-2 videos-grid">
-      
-      <!-- LEFT COLUMN: Three videos stacked -->
-      <div class="card left-column">
-        <h3>Autonomous Flight Test</h3>
-        
-        <!-- First Video -->
-        <video controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted>
-          <source src="assets/AirManualFlight1000ft.mp4" type="video/mp4">
-        </video>
-
-        <!-- Second Video -->
-        <video controls poster="assets/airTestHexDroneFlying thumbnail.png" muted>
-          <source src="assets\airTestHexDroneFlying - noaudio v2.mp4" type="video/mp4">
-        </video>
-
-        <!-- Third Video -->
-        <video controls poster="assets\air niu thumbnail.png" muted>
-          <source src="assets\air niu video.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <!-- RIGHT COLUMN: Single vertical video -->
-      <div class="card right-column">
-        <h3>Payload Drop Demo</h3>
-        <video controls poster="assets/airwinch.jpg" muted>
-          <source src="assets/2024WinchDropTest.mp4" type="video/mp4">
-        </video>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================= -->
-<!-- Flight Videos End  -->
-<!-- ============================= -->
-
-<!-- ============================= -->
-<!-- Sub-Teams Intro - Shaan Begin -->
-<!-- ============================= -->
-<section id="subteams-intro" style="background:linear-gradient(180deg,#f0f3f8,#fff);">
-  <div class="container-1140">
-    <div class="h-section">
-      <h2>Our Sub-Teams</h2>
-      <div class="divider divider--blue"></div>
-      <p>
-        Each sub-team consists of members from many different majors who work together to streamline the implementation of various systems into the final product.
-      </p>
-    </div>
-  </div>
-</section>
-<!-- ============================= -->
-<!-- Sub-Teams Intro - Shaan End -->
-<!-- ============================= -->
-
-<!-- ============================= -->
-<!-- Airfract Subteam Paragraph Attempt - Shaan Begin -->
-<!-- ============================= -->
-
-<section id="aircraft-video" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
-  <div class="container-1140">
-    <div class="grid grid-2">
-      
-      <!-- Left Side: Aircraft Video -->
-      <div class="card">
-    <video width="100%" controls poster="assets/airquadleg.jpg" style="border-radius:8px;">
-    <source src="assets\airQUADfixed.mp4" type="video/mp4" muted>
-    Your browser does not support the video tag.
-    </video>
-  </div>
-
-
-      <!-- Right Side: Paragraph -->
-      <div class="card flex-column">
-        <h2>Aircraft Team </h2>
-        <p>
-          Our custom-built aircraft is engineered for durability, stability, and efficiency. 
-          Featuring a lightweight carbon fiber frame and an aerodynamic design, it delivers optimal flight performance while carrying specialized payloads for the SUAS competition. 
-          With advanced avionics, precise autonomous control, and robust payload systems, the aircraft is built to excel in complex mission environments while prioritizing safety and reliability.
-          The Aircraft Subteam designs and constructs the drone’s frame and mounting systems using tools like SolidWorks and Ansys, along with principles of statics and dynamics. 
-          Parts are produced through in-house 3D printing or outsourced for carbon fiber fabrication.
-          The team focuses on creating a lightweight, structurally sound frame that allows easy access for other subteams to integrate their systems seamlessly.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================= -->
-<!-- Airfract Subteam Paragraph Attempt - Shaan End -->
-<!-- ============================= -->
-
-
-<!-- ============================= -->
-<!-- Payload Subteam Paragraph Attempt - Shaan Begin -->
-
-<!-- ============================= -->
-<section id="Payload-video" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
-  <div class="container-1140">
-    <div class="grid grid-2">
-      
-      <!-- Left Side: Paragraph -->
-      <div class="card flex-column">
-        <h2>Payload Team</h2>
-        <p>
-          The payload system is designed to ensure reliable and accurate delivery of payloads during mission operations. 
-          It manages every stage of the process, including containment, deployment, and controlled descent, to achieve precise and safe landings on target. 
-          Through careful engineering and rigorous testing, the system is built to operate efficiently and consistently in challenging competition environments.
-          The Payload Subteam focuses on the design, fabrication, and integration of the entire payload delivery system, including any necessary electronics for deployment.
-          The team’s goal is to optimize performance, ensuring payloads are released with precision and land safely, all while maintaining a streamlined and reliable system.
-        </p>
-      </div>
-
-      <!-- Right Side: Aircraft Video -->
-      <div class="card">
-        <video width="100%" controls poster="assets\airclawopenthumbnail.jpg" style="border-radius:8px;">
-          <source src= "assets\airclawopen - no audio.mp4" type="video/mp4" muted>
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================= -->
-<!-- Payload Subteam Paragraph Attempt - Shaan End -->
-<!-- ============================= -->
-
-<!-- ============================= -->
-<!-- Avionics Subteam Paragraph Attempt - Shaan Begin -->
-<!-- ============================= -->
-<section id="Avionics-photo" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> <div class="container-1140"> <div class="grid grid-2"> 
-  <!-- Left Side: Avionics Image --> 
-  <div class="card"> <img src="assets\airavionics.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;"> 
-  </div> <!-- Right Side: Paragraph --> 
-  <div class="card"> <h2>Avionics Team</h2>
-    <p> The avionics system serves as the backbone of the drone’s electrical and control infrastructure, enabling seamless integration of all onboard systems. 
-      It encompasses everything from power distribution to communications and navigation, ensuring reliable and efficient operation during missions.
-      The avionics team designs and implement the drone’s entire electrical system, including power distribution schematics, custom battery packs that we assemble and spot-weld,
-      and PCBs for low-power regulation and battery management. 
-      They also integrate flight controllers, telemetry radios, GPS/RTK modules, cameras, and motors using custom wiring harnesses and power cables. 
-      When off-the-shelf solutions do not meet mission requirements, they build custom hardware to ensure optimal performance and reliability.
-    </p>
-   </div> 
-  </div>
- </div> 
-</section>
-
-<!-- ============================= -->
-<!-- Avionics Subteam Paragraph Attempt - Shaan End -->
-<!-- ============================= -->
-
-
-<!-- ============================= -->
-<!-- Optics Subteam Paragraph Attempt - Shaan Begin -->
-<!-- ============================= -->
-<section id="Optics" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
-  <div class="container-1140">
-    <div class="grid grid-2">
-      
-      <!-- Left Side: Paragraph -->
-      <div class="card">
-        <h2>Optics Team</h2>
-        <p>
-          The Optics subteam broadly works on the software the drone uses to sense its environment. 
-          This typically entails detecting the targets in unknown locations we have to drop payloads on, creating a top-down map of a specified area like Google Maps, 
-          and detecting other teams’ aircraft so we don’t collide. 
-          Our subteam spends our time writing and testing code, including training deep learning models, doing math, and writing algorithms 
-          to process the camera images into usable information for GNC to use to command the drone.
-        </p>
-      </div>
-
-      <!-- Right Side: Camera Image -->
-      <div class="card">
-        <img src="assets\aircamera.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================= -->
-<!-- Optics Subteam Paragraph Attempt - Shaan End -->
-<!-- ============================= -->
-
-<!-- ============================= -->
-<!-- Guidance Navigation & Control Subteam Paragraph Attempt - Shaan Begin -->
-<!-- ============================= -->
-<section id="GNC-photo" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> <div class="container-1140"> <div class="grid grid-2"> 
-  <!-- Left Side: Guidance Image --> 
-  <div class="card"> <img src="assets\airGuidance Navigation Controls.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;"> 
-  </div> <!-- Right Side: Paragraph --> 
-  <div class="card"> <h2>Guidance Navigation & Control Team</h2>
-    <p> The Guidance, Navigation, and Control (GNC) Subteam is responsible for the autonomous operation of the drone. 
-      They solve challenges such as autonomous target navigation and dynamic path planning for mapping unexplored areas. 
-      To enable this functionality, they use the ArduPilot flight controller and configure missions through QGroundControl and Mission Planner. 
-      They verify and test our software systems through extensive software-in-the-loop simulations using platforms such as Gazebo to ensure reliable and precise autonomous flight.
-    </p>
-   </div> 
-  </div>
- </div> 
-</section>
-
-<!-- ============================= -->
-<!-- Guidance Navigation & Control Subteam Paragraph Attempt - Shaan End -->
-<!-- ============================= -->
-
-  <section id="team">
     <div class="container-1140">
-      <div class="h-section"><h2>Team Leadership</h2><div class="divider divider--blue"></div></div>
-      <div class="grid grid-3">
-        <div class="card center"><strong>Nasma Shabna</strong><div class="muted">Captain — Senior</div></div>
-        <div class="card center"><strong>Adrain Tse</strong><div class="muted">Captain — Senior</div></div>
-        <div class="card center"><strong>Shaan Mehta</strong><div class="muted">Captain — Junior</div></div>
-     
+      <div class="h-section">
+        <h2>Flight Videos</h2>
+        <div class="divider divider--blue"></div>
+      </div>
+
+      <div class="grid grid-2 videos-grid">
+        <div class="card left-column">
+          <h3>Autonomous Flight Test</h3>
+          <video controls poster="assets/AirManualFlight1000fthumbnail.jpg" muted>
+            <source src="assets/AirManualFlight1000ft.mp4" type="video/mp4">
+          </video>
+          <video controls poster="assets/airTestHexDroneFlying thumbnail.png" muted>
+            <source src="assets/airTestHexDroneFlying - noaudio v2.mp4" type="video/mp4">
+          </video>
+          <video controls poster="assets/air niu thumbnail.png" muted>
+            <source src="assets/air niu video.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="card right-column">
+          <h3>Payload Drop Demo</h3>
+          <video controls poster="assets/airwinch.jpg" muted>
+            <source src="assets/2024WinchDropTest.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ============================= -->
+  <!-- Sub-Teams Intro - Shaan Begin -->
+  <!-- ============================= -->
+  <section id="subteams-intro" style="background:linear-gradient(180deg,#f0f3f8,#fff);">
+    <div class="container-1140">
+      <div class="h-section">
+        <h2>Our Sub-Teams</h2>
+        <div class="divider divider--blue"></div>
+        <p>
+          Each sub-team consists of members from many different majors who work together to streamline the implementation of various systems into the final product.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  
+  <!-- ============================= -->
+  <!-- Aircraft Subteam Section -->
+  <!-- ============================= -->
+  <section id="aircraft-video" style="background:linear-gradient(180deg,#fff,#f0f3f8);">
+    <div class="container-1140">
+      <div class="grid grid-2">
+        <div class="card">
+          <video width="100%" controls poster="assets/airquadleg.jpg" style="border-radius:8px;">
+            <source src="assets/airQUADfixed.mp4" type="video/mp4" muted>
+          </video>
+        </div>
+        <div class="card flex-column">
+          <h2>Aircraft Team</h2>
+          <p>
+            Our custom-built aircraft is engineered for durability, stability, and efficiency. Featuring a lightweight carbon fiber frame and an aerodynamic design, it delivers optimal flight performance while carrying specialized payloads for the SUAS competition.
+            With advanced avionics, precise autonomous control, and robust payload systems, the aircraft is built to excel in complex mission environments while prioritizing safety and reliability.
+            The Aircraft Subteam designs and constructs the drone’s frame and mounting systems using tools like SolidWorks and Ansys, along with principles of statics and dynamics. Parts are produced through in-house 3D printing or outsourced for carbon fiber fabrication.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= -->
+  <!-- Team Leadership Section -->
+  <!-- ============================= -->
+  <section id="team">
+    <div class="container-1140">
+      <div class="h-section">
+        <h2>Team Leadership</h2>
+        <div class="divider divider--blue"></div>
+      </div>
+      <div class="grid grid-3">
+        <div class="card center"><strong>Nasma Shabna</strong><div class="muted">Captain — Senior</div></div>
+        <div class="card center"><strong>Adrain Tse</strong><div class="muted">Captain — Senior</div></div>
+        <div class="card center"><strong>Shaan Mehta</strong><div class="muted">Captain — Junior</div></div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <div class="container-1140 flex items-center justify-center gap-8">
       <span>Chicago Engineering Design Team 2025</span>
@@ -345,6 +206,5 @@
   </footer>
   <button id="backToTop" class="btn btn-primary" style="display:none; position:fixed; right:20px; bottom:20px;">↑</button>
   <script src="./script.js"></script>
-
 </body>
 </html>
