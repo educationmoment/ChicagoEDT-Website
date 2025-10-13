@@ -83,6 +83,16 @@
       text-align: center;
       font-size: 1.2em;
     }
+      /* ============================= */
+      /* Center subteam titles in their cards */
+      /* ============================= */
+    .subteam-title {
+      text-align: center; /* Horizontal centering */
+      font-size: 1.5rem;    
+      font-weight: 700;   /* Bold */
+      margin-bottom: 1px; /* Space below the header */
+    }
+    
   </style>
 </head>
 <body id="top">
@@ -151,7 +161,7 @@
     .video-column h3 {
       margin-bottom: 15px;
       text-align: center;
-      font-size: 1.2em;
+      font-size: 1.5em;
       background: none;
     }
 
@@ -202,10 +212,10 @@
   <section id="subteams-intro" style="background:linear-gradient(180deg,#f0f3f8,#fff);">
     <div class="container-1140">
       <div class="h-section">
-        <h2>Our Sub-Teams</h2>
+        <h2>Our Subteams</h2>
         <div class="divider divider--blue"></div>
         <p>
-          Each sub-team consists of members from many different majors who work together to streamline the implementation of various systems into the final product.
+          Each subteam consists of members from many different majors who work together to streamline the implementation of various systems into the final product.
         </p>
       </div>
     </div>
@@ -223,11 +233,13 @@
           </video>
         </div>
         <div class="card flex-column">
-          <h2>Aircraft Team</h2>
+          <h2 class="subteam-title">Aircraft</h2>
           <p>
-            Our custom-built aircraft is engineered for durability, stability, and efficiency. Featuring a lightweight carbon fiber frame and an aerodynamic design, it delivers optimal flight performance while carrying specialized payloads for the SUAS competition.
-            With advanced avionics, precise autonomous control, and robust payload systems, the aircraft is built to excel in complex mission environments while prioritizing safety and reliability.
-            The Aircraft Subteam designs and constructs the drone’s frame and mounting systems using tools like SolidWorks and Ansys, along with principles of statics and dynamics. Parts are produced through in-house 3D printing or outsourced for carbon fiber fabrication.
+            The Airframe Subteam is responsible for designing and constructing a custom-built aircraft engineered for durability, stability, and efficiency. 
+            Using a lightweight carbon fiber frame and an aerodynamic design, the team ensures optimal flight performance while accommodating specialized payloads for the C-UASC competition.
+            Their work involves developing the drone’s frame and mounting systems using tools like SolidWorks and Ansys, applying principles of statics and dynamics to achieve a structurally sound and efficient design. 
+            Parts are produced through in-house 3D printing or outsourced for carbon fiber fabrication. 
+            Combined with advanced avionics, precise autonomous control, and robust payload systems, the aircraft is built to excel in complex mission environments while prioritizing safety and reliability.
           </p>
         </div>
       </div>
@@ -240,18 +252,16 @@
     <section id="Payload-video" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> <div class="container-1140"> <div class="grid grid-2">
        <!-- Left Side: Paragraph --> 
         <div class="card flex-column"> 
-          <h2>Payload Team</h2> 
-          <p> The payload system is designed to ensure reliable and accurate delivery of payloads during mission operations. It manages every stage of the process, including containment, deployment, and controlled descent, to achieve precise and safe landings on target. 
-            Through careful engineering and rigorous testing, the system is built to operate efficiently and consistently in challenging competition environments. 
-            The Payload Subteam focuses on the design, fabrication, and integration of the entire payload delivery system, including any necessary electronics for deployment.
-            The team’s goal is to optimize performance, ensuring payloads are released with precision and land safely, all while maintaining a streamlined and reliable system. 
+          <h2 class="subteam-title">Payload</h2>
+          <p> The Payload Subteam is responsible for designing and building a reliable and accurate payload delivery system to support mission operations. 
+            The team manages every stage of the process, including containment, deployment, and controlled descent, to achieve precise and safe landings on target.
+            Their work involves the design, fabrication, and integration of the full payload system, including any required electronics for deployment. Through careful engineering and rigorous testing, they optimize performance to ensure consistent and efficient operation in challenging competition environments, enabling payloads to be released with precision and land safely.
           </p> 
         </div> 
         <!-- Right Side: Aircraft Video --> 
          <div class="card"> <video width="100%" controls 
           poster="assets\airclawopenthumbnail-1.jpg" style="border-radius:8px;"> 
           <source src= "assets\airclawopen - no audio.mp4" type="video/mp4" muted> 
-          Your browser does not support the video tag. 
         </video> 
       </div> 
     </div>
@@ -270,11 +280,10 @@
           <div class="card"> <img src="assets\airavionics.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;">
         </div> <!-- Right Side: Paragraph --> 
         <div class="card"> 
-          <h2>Avionics Team</h2>
-            <p> The avionics system serves as the backbone of the drone’s electrical and control infrastructure, enabling seamless integration of all onboard systems.
-            It encompasses everything from power distribution to communications and navigation, ensuring reliable and efficient operation during missions.
-            The avionics team designs and implement the drone’s entire electrical system, including power distribution schematics, custom battery packs that we assemble and spot-weld, and PCBs for low-power regulation and battery management.
-            They also integrate flight controllers, telemetry radios, GPS/RTK modules, cameras, and motors using custom wiring harnesses and power cables. When off-the-shelf solutions do not meet mission requirements, they build custom hardware to ensure optimal performance and reliability. 
+          <h2 class="subteam-title">Avionics</h2>
+            <p> The Avionics Subteam serves as the backbone of the drone’s electrical and control infrastructure, enabling seamless integration of all onboard systems. 
+              The team is responsible for designing and implementing the drone’s entire electrical architecture, including power distribution schematics, custom battery packs that are assembled and spot-welded in-house, and PCBs for low-power regulation and battery management. 
+              They integrate critical components such as flight controllers, telemetry radios, GPS/RTK modules, cameras, and motors through custom wiring harnesses and power cables. When off-the-shelf solutions are insufficient, the subteam develops custom hardware to meet mission requirements, ensuring reliable and efficient operation throughout flight.
           </p> 
         </div> 
       </div> 
@@ -289,11 +298,12 @@
   ============================= --> 
   <section id="Optics" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> <div class="container-1140"> 
     <div class="grid grid-2"> <!-- Left Side: Paragraph --> 
-      <div class="card"> <h2>Vision Team</h2> 
-        <p> The Vision subteam works on the software for sensing the environment, primarily with computer vision. This typically entails detecting the targets on the ground to drop payloads or to geotag, creating a top-down map of a specified area like Google Maps, and detecting 
-          other teams’ aircraft to avoid mid-air collisions. Our subteam spends our
-          time writing and testing scripts, including training object detection
-          models, and writing algorithms to process images for autonomous navigation, ground mapping, and other useful data.
+      <div class="card"> 
+        <h2 class="subteam-title">Vision</h2>
+        <p> The Vision Subteam develops software that enables the aircraft to sense and interpret its environment with precision. 
+          This involves detecting ground targets for payload drops and geotagging, generating top-down maps of mission areas similar to Google Maps, and detecting other aircraft to avoid mid-air collisions. 
+          The team focuses on real-time object detection using YOLOv5 and 3D mapping with OpenDroneMap, producing data essential for autonomous navigation. 
+          Their work centers on writing and testing computer vision algorithms, training object detection models, and processing imagery for navigation, ground mapping, and mission-critical decision-making in coordination with the Guidance, Navigation & Control Subteam.
           </p> </div> <!-- Right Side: Camera Image --> 
             <div class="card"> 
               <img src="assets\aircamera.jpg" alt="Avionics Image" style="width:100%; border-radius:8px;"> </div> 
@@ -304,9 +314,9 @@
   <!-- Vision Subteam Paragraph Attempt - Shaan End --> 
    <!-- ============================= --> 
    <!-- ============================= -->        
-             <!-- Guidance Navigation & Control Subteam Paragraph Attempt - Shaan Begin --> 
-              
-            <!-- ============================= --> 
+<!-- Guidance Navigation & Control Subteam Paragraph Attempt - Shaan Begin --> 
+  
+ <!-- ============================= --> 
              <section id="GNC-photo" style="background:linear-gradient(180deg,#fff,#f0f3f8);"> 
               <div class="container-1140"> 
                 <div class="grid grid-2"> 
@@ -315,11 +325,12 @@
                    </div> 
                    <!-- Right Side: Paragraph --> 
                     <div class="card"> 
-                      <h2>Guidance Navigation & Control Team</h2> 
-                      <p> The Guidance, Navigation, and Control (GNC) Subteam is responsible for the autonomous operation of the drone. 
-                        They solve challenges such as autonomous target navigation and dynamic path planning for mapping unexplored areas.
-                        To enable this functionality, they use the ArduPilot flight controller and configure missions through QGroundControl and Mission Planner. 
-                        They verify and test our software systems through extensive software-in-the-loop simulations using platforms such as Gazebo to ensure reliable and precise autonomous flight. 
+                      <h2 class="subteam-title">Guidance Navigation & Control</h2>
+                      <p> The Guidance, Navigation, and Control (GNC) Subteam enables fully autonomous flight, ensuring the aircraft can plan and execute missions with precision and reliability.
+                        The team develops algorithms for waypoint navigation, dynamic path planning, and real-time flight control, tackling challenges such as navigating to targets and mapping unexplored areas.
+                        They leverage processed data from the Vision Subteam—such as detected targets and 3D terrain maps—to enhance autonomous navigation and situational awareness. 
+                        Mission execution is powered by the ArduPilot flight controller and configured through QGroundControl and Mission Planner. 
+                        To validate these algorithms, the team conducts extensive software-in-the-loop (SITL) simulations using Gazebo, ensuring robust and reliable autonomous flight.
                       </p>
                      </div> 
                     </div> 
