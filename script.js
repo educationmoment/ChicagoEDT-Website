@@ -20,7 +20,7 @@ if (topBtn){
 document.addEventListener("DOMContentLoaded", () => {
   const imagePaths = [
     "assets/headers/index/winners.jpg",
-    "assets/headers/index/winners.jpg",
+    "assets/headers/index/monke.jpg",
     "assets/headers/index/winners.jpg",
   ];
 
