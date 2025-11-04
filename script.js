@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const imagePaths = [
     "assets/headers/index/winners.jpg",
     "assets/headers/index/airdronecrowdheader.jpg",
+    "assets/headers/index/peace-scaled.jpg",
+    "assets/headers/index/AiR-group2-scaled.jpg",
+    "assets/headers/index/20251015_164235.jpg",
+    "assets/headers/index/IMG_7522.jpg",
   ];
 
   const imageContainer = document.getElementById("carousel-images");
