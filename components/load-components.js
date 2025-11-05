@@ -3,26 +3,89 @@ const COMPONENTS = [
   {
     name: 'navbar',
     target: '#site-navbar',
-    html: '/components/navbar/navbar.html',
-    css: '/components/navbar/navbar.css',
-    js: '/components/navbar/navbar.js',
+    html: './components/navbar/navbar.html',
+    css: './components/navbar/navbar.css',
+    js: './components/navbar/navbar.js',
     init: 'initNavbar'
   },
   {
     name: 'footer',
     target: '#site-footer',
-    html: '/components/footer/footer.html',
-    css: '/components/footer/footer.css',
-    js: '/components/footer/footer.js',
+    html: './components/footer/footer.html',
+    css: './components/footer/footer.css',
+    js: './components/footer/footer.js',
     init: 'initFooter'
+  },
+  {
+    name: 'hero-index',
+    target: '#site-hero',
+    html: './components/hero-index/hero-index.html',
+    css: './components/hero-index/hero-index.css',
+    js: './components/hero-index/hero-index.js',
+    init: 'initIndexHero',
+    pages: ['index.html', '']  // '' matches root URL
+  },
+  {
+    name: 'hero-lunabotics',
+    target: '#site-hero',
+    html: './components/hero-lunabotics/hero-lunabotics.html',
+    css: './components/hero-lunabotics/hero-lunabotics.css',
+    pages: ['lunabotics.html']
+  },
+  {
+    name: 'hero-air',
+    target: '#site-hero',
+    html: './components/hero-air/hero-air.html',
+    css: './components/hero-air/hero-air.css',
+    pages: ['air.html']
+  },
+  {
+    name: 'hero-robobrawl',
+    target: '#site-hero',
+    html: './components/hero-robobrawl/hero-robobrawl.html',
+    css: './components/hero-robobrawl/hero-robobrawl.css',
+    pages: ['robobrawl.html']
   }
 ];
 
+// Helper to get current page name
+function getCurrentPage() {
+  const path = window.location.pathname;
+  const page = path.substring(path.lastIndexOf('/') + 1);
+  console.log('Current page:', page || 'index.html');
+  return page || 'index.html';
+}
+
+// Helper to check if component should load for current page
+function shouldLoadComponent(component) {
+  if (!component.pages) return true; // Load if no page restriction
+  const currentPage = getCurrentPage();
+  return component.pages.includes(currentPage);
+}
+
 async function loadComponent(component) {
   try {
+    // Check if component should load for current page
+    if (!shouldLoadComponent(component)) {
+      console.log(`Skipping ${component.name} - not for current page`);
+      return;
+    }
+
+    console.log(`Loading component: ${component.name}`);
+
+    // Find target element
+    const target = document.querySelector(component.target);
+    if (!target) {
+      console.error(`Target element not found: ${component.target}`);
+      return;
+    }
+
     // Load HTML
+    console.log(`Fetching HTML: ${component.html}`);
     const htmlResponse = await fetch(component.html);
-    if (!htmlResponse.ok) throw new Error(`Failed to load ${component.name} HTML`);
+    if (!htmlResponse.ok) {
+      throw new Error(`Failed to load ${component.name} HTML: ${htmlResponse.status}`);
+    }
     const html = await htmlResponse.text();
     
     // Load CSS
@@ -30,30 +93,49 @@ async function loadComponent(component) {
     style.rel = 'stylesheet';
     style.href = component.css;
     document.head.appendChild(style);
-    
-    // Load JS
-    const script = document.createElement('script');
-    script.src = component.js;
-    script.async = true;
-    document.body.appendChild(script);
+    console.log(`Added CSS: ${component.css}`);
     
     // Insert HTML
-    const target = document.querySelector(component.target);
-    if (target) {
-      target.innerHTML = html;
+    target.innerHTML = html;
+    console.log(`Inserted HTML for ${component.name}`);
+    
+    // Load JS if component has it
+    if (component.js) {
+      const script = document.createElement('script');
+      script.src = component.js;
+      script.async = true;
+      
       // Initialize component after script loads
-      script.onload = () => {
-        if (window[component.init]) {
-          window[component.init]();
-        }
-      };
+      if (component.init) {
+        script.onload = () => {
+          console.log(`Initializing ${component.name}`);
+          if (window[component.init]) {
+            window[component.init]();
+          } else {
+            console.warn(`Init function not found: ${component.init}`);
+          }
+        };
+      }
+      
+      document.body.appendChild(script);
+      console.log(`Added JS: ${component.js}`);
     }
   } catch (err) {
-    console.error(`Failed to load component ${component.name}:`, err);
+    console.error(`Error loading component ${component.name}:`, err);
+    // Show error in the target element for development
+    const target = document.querySelector(component.target);
+    if (target) {
+      target.innerHTML = `
+        <div style="padding: 20px; color: red; border: 1px solid red;">
+          Error loading ${component.name}: ${err.message}
+        </div>
+      `;
+    }
   }
 }
 
 // Load all components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('Loading components...');
   COMPONENTS.forEach(loadComponent);
 });
