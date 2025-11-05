@@ -1,0 +1,19 @@
+/* Footer styles */
+footer {
+  background: #222;
+  color: #fff;
+  padding: 30px 0;
+  margin-top: 60px;
+}
+
+footer a {
+  color: #fff;
+}
+
+#backToTop {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99;
+}
