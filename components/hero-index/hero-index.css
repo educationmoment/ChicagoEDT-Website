@@ -86,8 +86,9 @@
 
 /* text styling */
 .hero-carousel h1 {
-  font-size: 56px;
+  font-size: 42px;
   margin: 0 0 14px;
+  color: var(--uic-red)
 }
 
 .hero-carousel p.lead {
@@ -95,4 +96,5 @@
   opacity: 0.95;
   max-width: 820px;
   margin: 0 auto;
+  color: var(--uic-red)
 }

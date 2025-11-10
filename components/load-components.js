@@ -30,6 +30,8 @@ const COMPONENTS = [
     target: '#site-hero',
     html: './components/hero-lunabotics/hero-lunabotics.html',
     css: './components/hero-lunabotics/hero-lunabotics.css',
+    js: './components/hero-lunabotics/hero-lunabotics.js',
+    init: 'initLunaHero',
     pages: ['lunabotics.html']
   },
   {
