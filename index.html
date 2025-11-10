@@ -11,36 +11,9 @@
 </head>
 <body id="top">
   
-  <header class="navbar">
-    <div class="inner container-1140">
-      <a class="brand" href="./index.html">
-        <span class="logo"><img class="logo" src="assets/logo.png" alt="logo"></span><span>UIC EDT</span>
-      </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
-      <nav class="nav-links">
-        <a href="./index.html" style="text-decoration:underline;opacity:1;">Home</a>
-        <a href="./robobrawl.html">RoboBrawl</a>
-        <a href="./lunabotics.html">Lunabotics</a>
-        <a href="./air.html">AIR</a>
-      </nav>
-    </div>
-  </header>
+  <div id="site-navbar"></div>
 
-  <section class="hero-carousel">
-    <div class="carousel-container">
-      <div class="carousel-images" id="carousel-images"></div>
-
-      <div class="carousel-overlay">
-        <h1>Chicago Engineering Design Team</h1>
-        <p class="lead">Robotic Tinkerers at UIC</p>
-        <div class="space-top">
-          <a href="#teams" class="btn btn-white">Explore Teams</a>
-        </div>
-      </div>
-
-      <div class="carousel-dots" id="carousel-dots"></div>
-    </div>
-  </section>
+  <div id="site-hero"></div>
 
 
   <section id="about">
@@ -64,7 +37,7 @@
           Our mission is to foster a learning environment for all, and help students in lower-income areas get access to STEM education.
         </p>
         <div class="h-section">
-        <div class="divider divider--blue"></div>
+        <div class="divider divider--blue" style="margin-bottom: 15px;"></div>
         <div class="card">
           <h3>Officers</h3>
           <p class="muted">Ninai Kamdar - President</p>
@@ -110,17 +83,9 @@
   </section>
 
   
-  <footer>
-    <div class="container-1140 flex items-center justify-center gap-8">
-      <span>Chicago Engineering Design Team 2025</span>
-      <span>|</span>
-      <span><a href="mailto:abaja5@uic.edu">Contact Site Admin</a></span>
-      <span>|</span>
-      <a href="#top">Back to top</a>
-    </div>
-  </footer>
-  <button id="backToTop" class="btn btn-primary" style="display:none; position:fixed; right:20px; bottom:20px;">↑</button>
+  <div id="site-footer"></div>
+  
+  <script src="./components/load-components.js"></script>
   <script src="./script.js"></script>
-
 </body>
 </html>

@@ -32,31 +32,9 @@
 </head>
 <body id="top">
   
-  <header class="navbar">
-    <div class="inner container-1140">
-      <a class="brand" href="./index.html">
-        <span class="logo"><img class="logo" src="assets/logo.png" alt="logo"></span><span>UIC EDT</span>
-      </a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
-      <nav class="nav-links">
-        <a href="./index.html">Home</a>
-        <a href="./robobrawl.html">RoboBrawl</a>
-        <a href="./lunabotics.html" style="text-decoration:underline;opacity:1;">Lunabotics</a>
-        <a href="./air.html">AIR</a>
-      </nav>
-    </div>
-  </header>
+  <div id="site-navbar"></div>
 
-  <section class="hero-lunabotics pt-hero hero--accent">
-    <div class="container-1140">
-      <h1>Lunabotics</h1>
-      <p class="lead">NASA Competition Team designing autonomous lunar excavation robots for future space missions.</p>
-      <div class="space-top" style="display:flex; justify-content: center; gap: 1rem;">
-        <a class="btn btn-white" href="#specs">Technical Specs</a>
-        <a class="btn btn-white" href="#downloads">Resources</a>
-      </div>
-    </div>
-  </section>
+  <div id="site-hero"></div>
 
   <section id="mission">
     <div class="container-1140">
@@ -200,16 +178,9 @@
     </div>
   </section>
 
-  <footer>
-    <div class="container-1140 flex items-center justify-center gap-8">
-      <span>Chicago Engineering Design Team 2025</span>
-      <span>|</span>
-      <span><a href="mailto:abaja5@uic.edu">Contact Site Admin</a></span>
-      <span>|</span>
-      <a href="#top">Back to top</a>
-    </div>
-  </footer>
-  <button id="backToTop" class="btn btn-primary" style="display:none; position:fixed; right:20px; bottom:20px;">↑</button>
+  <div id="site-footer"></div>
+  
+  <script src="./components/load-components.js"></script>
   <script src="./script.js"></script>
 
 </body>

@@ -1,0 +1,22 @@
+/* AIR hero styles */
+.hero-air {
+  color: #fff;
+  text-align: center;
+  padding: 120px 0;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/assets/headers/airdroneheader.png') center 85%/cover no-repeat;
+  box-shadow: 0 8px 32px rgba(0,34,102,.35);
+}
+
+.hero-air h1 {
+  font-size: 42px;
+  margin: 0 0 14px;
+}
+
+.hero-air p.lead {
+  font-size: 20px;
+  opacity: 0.95;
+  max-width: 820px;
+  margin: 0 auto;
+}
