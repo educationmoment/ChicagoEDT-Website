@@ -47,6 +47,14 @@ const COMPONENTS = [
     html: './components/hero-robobrawl/hero-robobrawl.html',
     css: './components/hero-robobrawl/hero-robobrawl.css',
     pages: ['robobrawl.html']
+  },
+  {
+    name: 'drone-3d-viewer',
+    target: '#drone-3d-viewer',
+    html: './components/drone-3d-viewer/drone-3d-viewer.html',
+    css: './components/drone-3d-viewer/drone-3d-viewer.css',
+    js: './components/drone-3d-viewer/drone-3d-viewer.js',
+    pages: ['air.html']
   }
 ];
 
@@ -106,7 +114,12 @@ async function loadComponent(component) {
       const script = document.createElement('script');
       script.src = component.js;
       script.async = true;
-      
+
+      // Use type="module" for drone-3d-viewer to support ES6 imports
+      if (component.name === 'drone-3d-viewer') {
+        script.type = 'module';
+      }
+
       // Initialize component after script loads
       if (component.init) {
         script.onload = () => {
@@ -118,7 +131,7 @@ async function loadComponent(component) {
           }
         };
       }
-      
+
       document.body.appendChild(script);
       console.log(`Added JS: ${component.js}`);
     }

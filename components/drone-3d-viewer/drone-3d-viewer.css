@@ -1,0 +1,33 @@
+#drone-3d-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#drone-3d-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: Loading indicator */
+#drone-3d-container::before {
+  content: 'Loading 3D Model...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Hide loading text after canvas is added */
+#drone-3d-container:has(canvas)::before {
+  display: none;
+}
