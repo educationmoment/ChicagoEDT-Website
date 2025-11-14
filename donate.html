@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- author: aakash bajaj - @educationmoment -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDT — Donate</title>
+  <meta name="description" content="Chicago Engineering Design Team @ UIC">
+  <link rel="icon" type="image/x-icon" href="assets/logo.ico">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body id="top">
+
+  <div id="site-navbar"></div>
+  <div style="min-height: 100vh; display: flex; flex-direction: column;">
+    <section id="instructions" style="padding: 60px 20px 0 20px; flex: 1;">
+      <div class="container-1140" style="margin-top: 40px;">
+          <div class="h-section">
+            <h2>How to Donate</h2>
+            <div class="divider divider--blue"></div>
+            <div style="max-width: 800px; margin: 0 auto">
+              <p>Thank you for considering a donation to the Chicago Engineering Design Team! Below are instructions for donations online or by check.</p>
+            </div>
+
+          </div>
+
+          <!-- Tab Container -->
+          <div class="tab-container">
+            <!-- Tab Buttons -->
+            <div class="tab-buttons">
+              <button class="tab-button active" data-tab="individuals">Online</button>
+              <button class="tab-button" data-tab="organizations">Via Check</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <!-- Tab 1: Online -->
+              <div class="tab-panel active" id="individuals">
+                <h3>Online Donations</h3>
+                <ol>
+                  <li>Visit: 
+                    <a href="https://payment.give.uic.edu/campaigns/48413/donations/new" target="_blank">
+                      https://payment.give.uic.edu/campaigns/48413/donations/new
+                    </a>
+                  </li>
+                  <li>Fill out the giving form. In the <strong>Designation</strong> dialog box, select the option <strong>UIC Engineering Design Team Fund</strong></li>
+                  <li>Select the payment method and complete the transation.</li>
+                </ol>
+                <p>For additional giving instructions or help, you can visit 
+                  <a href="https://advance.uic.edu/ways-to-give-info/" target="_blank">
+                    https://advance.uic.edu/ways-to-give-info/
+                  </a>
+                </p>
+              </div>
+
+              <!-- Tab 2: Via Checks -->
+              <div class="tab-panel" id="organizations">
+                <h3>Donations Via Check</h3>
+                <ol>
+                  <li>Make a check payable to <strong>University of Illinois Foundation</strong>.</li>
+                  <li>In the <strong>Memo</strong> section, make sure to include: "<strong>UIC Engineering Design Fund</strong>".</li>
+                  <li>Mail your donation check to: University of Illinois Foundation, P.O. Box 734500, Chicago, IL, 60673-4500</li>
+                  <li>Receive recognition on our website and in team materials</li>
+                </ol>
+                <p>For additional giving instructions or help, you can visit 
+                  <a href="https://advance.uic.edu/ways-to-give-info/" target="_blank">
+                    https://advance.uic.edu/ways-to-give-info/
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-section" style="max-width: 800px; margin: 0 auto">
+            <p>
+              If you or your company would like to be featured in our sponsored section on this website for your donation(s), contact use at: <a href="mailto:chicagoedtcontact@gmail.com">chicagoedtcontact@gmail.com</a>.
+            </p>
+          </div>
+      </div>
+    </section>
+
+    <div id="site-footer"></div>
+  </div>
+  
+  
+
+  
+  <script src="./components/load-components.js"></script>
+  <script>
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const targetTab = this.getAttribute('data-tab');
+
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabPanels.forEach(panel => panel.classList.remove('active'));
+
+          this.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
