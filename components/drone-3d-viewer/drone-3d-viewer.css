@@ -1,0 +1,56 @@
+/* Responsive card layout */
+.drone-viewer-card {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#drone-3d-container {
+  width: 40%;
+  height: 300px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: radial-gradient(circle at center, #e0e0e0 0%, #ffffff 30%);
+}
+
+.drone-description {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.drone-description p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .drone-viewer-card {
+    flex-direction: column;
+  }
+
+  #drone-3d-container {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+#drone-3d-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+/* Stat Table Component */
+.stat-row {
+  border-bottom: 1px solid #dfdfdf;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.stat-item {
+  flex: 1;
+}
