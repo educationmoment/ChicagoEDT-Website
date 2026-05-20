@@ -96,7 +96,7 @@ function loadDroneModel(THREE, GLTFLoader, DRACOLoader) {
   console.log('Starting to load drone model...');
 
   loader.load(
-    'assets/3D/quad_big_drone.glb',
+    '/air/2026_frame_compressed.glb',
     (gltf) => {
       drone = gltf.scene;
 
@@ -155,7 +155,7 @@ function loadDroneModel(THREE, GLTFLoader, DRACOLoader) {
     },
     (error) => {
       console.error('Error loading drone model:', error);
-      console.error('Make sure the file exists at: assets/3D/quad_big_drone.glb');
+      console.error('Make sure the file exists at: /air/2026_frame_compressed.glb');
     }
   );
 }

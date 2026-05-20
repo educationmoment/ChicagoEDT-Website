@@ -1,69 +1,75 @@
 // Components loader
+const COMPONENT_BASE = new URL('.', document.currentScript.src);
+
+function resolveComponentPath(path) {
+  return new URL(path, COMPONENT_BASE).toString();
+}
+
 const COMPONENTS = [
   {
     name: 'navbar',
     target: '#site-navbar',
-    html: './components/navbar/navbar.html',
-    css: './components/navbar/navbar.css',
-    js: './components/navbar/navbar.js',
+    html: resolveComponentPath('navbar/navbar.html'),
+    css: resolveComponentPath('navbar/navbar.css'),
+    js: resolveComponentPath('navbar/navbar.js'),
     init: 'initNavbar'
   },
   {
     name: 'footer',
     target: '#site-footer',
-    html: './components/footer/footer.html',
-    css: './components/footer/footer.css',
-    js: './components/footer/footer.js',
+    html: resolveComponentPath('footer/footer.html'),
+    css: resolveComponentPath('footer/footer.css'),
+    js: resolveComponentPath('footer/footer.js'),
     init: 'initFooter'
   },
   {
     name: 'hero-index',
     target: '#site-hero',
-    html: './components/hero-index/hero-index.html',
-    css: './components/hero-index/hero-index.css',
-    js: './components/hero-index/hero-index.js',
+    html: resolveComponentPath('hero-index/hero-index.html'),
+    css: resolveComponentPath('hero-index/hero-index.css'),
+    js: resolveComponentPath('hero-index/hero-index.js'),
     init: 'initIndexHero',
-    pages: ['index.html', '']  // '' matches root URL
+    pages: ['index.html']
   },
   {
     name: 'hero-lunabotics',
     target: '#site-hero',
-    html: './components/hero-lunabotics/hero-lunabotics.html',
-    css: './components/hero-lunabotics/hero-lunabotics.css',
-    js: './components/hero-lunabotics/hero-lunabotics.js',
+    html: resolveComponentPath('hero-lunabotics/hero-lunabotics.html'),
+    css: resolveComponentPath('hero-lunabotics/hero-lunabotics.css'),
+    js: resolveComponentPath('hero-lunabotics/hero-lunabotics.js'),
     init: 'initLunaHero',
     pages: ['lunabotics.html']
   },
   {
     name: 'hero-air',
     target: '#site-hero',
-    html: './components/hero-air/hero-air.html',
-    css: './components/hero-air/hero-air.css',
-    pages: ['air.html']
+    html: resolveComponentPath('hero-air/hero-air.html'),
+    css: resolveComponentPath('hero-air/hero-air.css'),
+    pages: ['air/index.html']
   },
   {
     name: 'hero-robobrawl',
     target: '#site-hero',
-    html: './components/hero-robobrawl/hero-robobrawl.html',
-    css: './components/hero-robobrawl/hero-robobrawl.css',
+    html: resolveComponentPath('hero-robobrawl/hero-robobrawl.html'),
+    css: resolveComponentPath('hero-robobrawl/hero-robobrawl.css'),
     pages: ['robobrawl.html']
   },
   {
     name: 'drone-3d-viewer',
     target: '#drone-3d-viewer',
-    html: './components/drone-3d-viewer/drone-3d-viewer.html',
-    css: './components/drone-3d-viewer/drone-3d-viewer.css',
-    js: './components/drone-3d-viewer/drone-3d-viewer.js',
-    pages: ['air.html']
+    html: resolveComponentPath('drone-3d-viewer/drone-3d-viewer.html'),
+    css: resolveComponentPath('drone-3d-viewer/drone-3d-viewer.css'),
+    js: resolveComponentPath('drone-3d-viewer/drone-3d-viewer.js'),
+    pages: ['air/index.html']
   }
 ];
 
 // Helper to get current page name
 function getCurrentPage() {
   const path = window.location.pathname;
-  const page = path.substring(path.lastIndexOf('/') + 1);
-  console.log('Current page:', page || 'index.html');
-  return page || 'index.html';
+  if (path === '/' || path === '') return 'index.html';
+  if (path.endsWith('/')) return `${path.slice(1)}index.html`;
+  return path.slice(1);
 }
 
 // Helper to check if component should load for current page

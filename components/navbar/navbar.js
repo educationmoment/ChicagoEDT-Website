@@ -8,10 +8,15 @@ function initNavbar() {
   }
 
   // Update active link based on current page
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const path = window.location.pathname;
+  const currentPage = path === '/' || path === ''
+    ? 'index.html'
+    : path.endsWith('/')
+      ? `${path.slice(1)}index.html`
+      : path.slice(1);
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
-    if (link.getAttribute('href').includes(currentPage)) {
+    if (link.getAttribute('href').endsWith(currentPage)) {
       link.style.textDecoration = 'underline';
       link.style.opacity = '1';
     }
