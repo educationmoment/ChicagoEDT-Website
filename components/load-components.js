@@ -48,6 +48,13 @@ const COMPONENTS = [
     pages: ['air/index.html']
   },
   {
+    name: 'hero-air-avionics',
+    target: '#site-hero',
+    html: resolveComponentPath('hero-air/hero-air-avionics.html'),
+    css: resolveComponentPath('hero-air/hero-air-avionics.css'),
+    pages: ['air/avionics.html']
+  },
+  {
     name: 'hero-robobrawl',
     target: '#site-hero',
     html: resolveComponentPath('hero-robobrawl/hero-robobrawl.html'),
@@ -57,9 +64,9 @@ const COMPONENTS = [
   {
     name: 'drone-3d-viewer',
     target: '#drone-3d-viewer',
-    html: resolveComponentPath('drone-3d-viewer/drone-3d-viewer.html'),
-    css: resolveComponentPath('drone-3d-viewer/drone-3d-viewer.css'),
-    js: resolveComponentPath('drone-3d-viewer/drone-3d-viewer.js'),
+    html: '/air/3D/drone-3d-viewer.html',
+    css: '/air/3D/drone-3d-viewer.css',
+    js: '/air/3D/drone-3d-viewer.js',
     pages: ['air/index.html']
   }
 ];
@@ -67,9 +74,12 @@ const COMPONENTS = [
 // Helper to get current page name
 function getCurrentPage() {
   const path = window.location.pathname;
-  if (path === '/' || path === '') return 'index.html';
-  if (path.endsWith('/')) return `${path.slice(1)}index.html`;
-  return path.slice(1);
+  if (!path || path === '/') return 'index.html';
+
+  const normalized = path.startsWith('/') ? path.slice(1) : path;
+  if (!normalized) return 'index.html';
+  if (normalized.endsWith('/')) return `${normalized}index.html`;
+  return normalized;
 }
 
 // Helper to check if component should load for current page

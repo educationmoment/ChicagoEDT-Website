@@ -163,18 +163,6 @@
     </div>
   </section>
 
-  <!-- 3D Drone Model Viewer -->
-  <section id="drone-model">
-    <div class="container-1140">
-      <div class="h-section">
-        <h2>Our Quad Drone - 3D Model</h2>
-        <div class="divider divider--blue"></div>
-        <p>Interact with our drone design in 3D. Drag to rotate, scroll to zoom.</p>
-      </div>
-      <div id="drone-3d-viewer"></div>
-    </div>
-  </section>
-
   <!-- Videos Section -->
   <section id="videos">
     <div class="container-1140">
@@ -186,21 +174,21 @@
         <div class="videos-grid">
           <div class="video-column">
             <h3>Flight Videos</h3>
-            <video controls poster="/assets/AirManualFlight1000fthumbnail.jpg" muted>
-              <source src="/assets/AirManualFlight1000ft.mp4" type="video/mp4">
+            <video controls poster="../assets/AirManualFlight1000fthumbnail.jpg" muted>
+              <source src="../assets/AirManualFlight1000ft.mp4" type="video/mp4">
             </video>
-            <video controls poster="/assets/airTestHexDroneFlying thumbnail.png" muted>
-              <source src="/assets/airTestHexDroneFlying.mp4" type="video/mp4">
+            <video controls poster="../assets/airTestHexDroneFlying thumbnail.png" muted>
+              <source src="../assets/airTestHexDroneFlying.mp4" type="video/mp4">
             </video>
-            <video controls poster="/assets/air niu thumbnail.png" muted>
-              <source src="/assets/air niu video.mp4" type="video/mp4">
+            <video controls poster="../assets/air niu thumbnail.png" muted>
+              <source src="../assets/air niu video.mp4" type="video/mp4">
             </video>
           </div>
 
           <div class="video-column">
             <h3>Payload Drop Demo</h3>
-            <video controls poster="/assets/air2024winch.jpg" muted>
-              <source src="/assets/air2024WinchDropTest.mp4" type="video/mp4">
+            <video controls poster="../assets/air2024winch.jpg" muted>
+              <source src="../assets/air2024WinchDropTest.mp4" type="video/mp4">
             </video>
           </div>
         </div>
@@ -212,7 +200,7 @@
   <section id="subteams-intro">
     <div class="container-1140">
       <div class="h-section">
-        <h2>Our Subteams</h2>
+        <h2>Our Subteams and Subsystems</h2>
         <div class="divider divider--blue"></div>
         <p>
           Each subteam consists of members from many different majors who work together to streamline the implementation
@@ -221,25 +209,19 @@
       </div>
       <div class="card">
         
-        <!-- Aircraft Subteam -->
+        <!-- Airframe Subteam -->
         <div class="subteam-grid">
-          <div>
-            <video autoplay loop muted playsinline>
-              <source src="/assets/3Dprint_timelapse.mp4" type="video/mp4">
-            </video>
-          </div>
+          <div id="drone-3d-viewer"></div>
           <div class="flex-column">
-            <h2 class="subteam-title">Aircraft</h2>
+            <h2 class="subteam-title">Airframe</h2>
             <p>
-              The Aircraft Subteam is responsible for designing and constructing a custom-built aircraft engineered for
+              The Airframe Subteam is responsible for designing and constructing a custom-built aircraft engineered for
               durability, stability, and efficiency.
-              Using a lightweight carbon fiber frame and an aerodynamic design, the team ensures optimal flight
-              performance while accommodating specialized payloads for the C-UASC competition.
-              Their work involves developing the drone's frame and mounting systems using tools like SolidWorks and Ansys,
+              Utilizing rapid prototyping manufacturing techniques, the team ensures scalability while ensuring
+              efficiency and flight performance.
+              Their work involves developing the drone's frame and mounting hardware using SolidWorks and simulation with Ansys,
               applying principles of statics and dynamics to achieve a structurally sound and efficient design.
-              Parts are produced through in-house 3D printing or outsourced for carbon fiber fabrication.
-              Combined with advanced avionics, precise autonomous control, and robust payload systems, the aircraft is
-              built to excel in complex mission environments while prioritizing safety and reliability.
+              Parts are produced through in-house 3D printing, laser cutting, waterjet cutting, and milling.
             </p>
           </div>
         </div>
@@ -249,14 +231,13 @@
           <div class="flex-column">
             <h2 class="subteam-title">Payload</h2>
             <p>
-              The Payload Subteam is responsible for designing and building a reliable and accurate payload delivery
+              The Payload Subteam is responsible for designing and building a reliable and accurate payload pickup and delivery
               system to support mission operations.
               The team manages every stage of the process, including containment, deployment, and controlled descent, to
               achieve precise and safe landings on target.
-              Their work involves the design, fabrication, and integration of the full payload system, including any
-              required electronics for deployment. Through careful engineering and rigorous testing, they optimize
-              performance to ensure consistent and efficient operation in challenging competition environments, enabling
-              payloads to be released with precision and land safely.
+              Their work involves the design, fabrication, and integration of the full payload system, including mechatronics 
+              for deployment. Through careful engineering and rigorous testing, they enable 
+              payloads to be picked up and released with precision and safety of people around.
             </p>
           </div>
           <div>
@@ -272,15 +253,15 @@
             <img src="/assets/airavionics.jpg" alt="Avionics Image">
           </div>
           <div class="flex-column">
-            <h2 class="subteam-title">Avionics</h2>
+            <h2 class="subteam-title">Avionics and Power</h2>
             <p>
               The Avionics Subteam serves as the backbone of the drone's electrical and control infrastructure, enabling
               seamless integration of all onboard systems.
-              The team is responsible for designing and implementing the drone's entire electrical architecture, including
-              power distribution schematics, custom battery packs that are assembled and spot-welded in-house, and PCBs
-              for low-power regulation and battery management.
-              They integrate critical components such as flight controllers, telemetry radios, GPS/RTK modules, cameras,
-              and motors through custom wiring harnesses and power cables. When off-the-shelf solutions are insufficient,
+              The team is responsible for designing and implementing the drone's entire power distribution, including
+              batteries and custom designed circuits 
+              for power conversion and battery management.
+              They integrate flight critical components such as flight controllers, telemetry radios, GPS/RTK modules,
+              and motors as well as ground operating station equipment. When off-the-shelf solutions are insufficient,
               the subteam develops custom hardware to meet mission requirements, ensuring reliable and efficient operation
               throughout flight.
             </p>
@@ -290,13 +271,12 @@
         <!-- Vision Subteam -->
         <div class="subteam-grid">
           <div class="flex-column">
-            <h2 class="subteam-title">Vision</h2>
+            <h2 class="subteam-title">Vision & Intelligence</h2>
             <p>
-              The Vision Subteam develops software that enables the aircraft to sense and interpret its environment with
+              The Vision and Intelligence Subteam develops software that enables the aircraft to sense and interpret its environment with
               precision.
-              This involves detecting ground targets for payload drops and geotagging, generating top-down maps of mission
-              areas similar to Google Maps, and detecting other aircraft to avoid mid-air collisions.
-              The team focuses on real-time object detection using YOLOv5 and 3D mapping with OpenDroneMap, producing data
+              This involves detecting ground targets for payload drops and geotagging, and algorithms to aid in autonomous navigation.
+              The team focuses on real-time object detection using OpenCV and YOLOv11, producing data
               essential for autonomous navigation.
               Their work centers on writing and testing computer vision algorithms, training object detection models, and
               processing imagery for navigation, ground mapping, and mission-critical decision-making in coordination with
@@ -314,18 +294,18 @@
             <img src="/assets/airGuidance Navigation Controls.jpg" alt="Guidance Navigation Controls">
           </div>
           <div class="flex-column">
-            <h2 class="subteam-title">Guidance Navigation & Control</h2>
+            <h2 class="subteam-title">Guidance, Navigation & Control</h2>
             <p>
               The Guidance, Navigation, and Control (GNC) Subteam enables fully autonomous flight, ensuring the aircraft
               can plan and execute missions with precision and reliability.
               The team develops algorithms for waypoint navigation, dynamic path planning, and real-time flight control,
-              tackling challenges such as navigating to targets and mapping unexplored areas.
+              tackling challenges such as efficient flight planning and navigating to targets.
               They leverage processed data from the Vision Subteam—such as detected targets and 3D terrain maps—to enhance
               autonomous navigation and situational awareness.
               Mission execution is powered by the ArduPilot flight controller and configured through QGroundControl and
-              Mission Planner.
-              To validate these algorithms, the team conducts extensive software-in-the-loop (SITL) simulations using
-              Gazebo, ensuring robust and reliable autonomous flight.
+              Ardupilot Mission Planner as well as a custom web interface.
+              To validate these algorithms, the team conducts extensive software-in-the-loop (SITL) simulations, 
+              ensuring robust and reliable autonomous flight.
             </p>
           </div>
         </div>

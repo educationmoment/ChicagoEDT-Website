@@ -1,0 +1,223 @@
+<!doctype html>
+<!-- author: aakash bajaj- @educationmoment -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chicago Engineering Design Team @ UIC">
+  <title>EDT — AIR</title>
+  <link rel="icon" type="image/x-icon" href="/assets/logo.ico">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Consistent section spacing */
+    section {
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    /* Reduce spacing between sections */
+    #pitch,
+    #videos,
+    #subteams-intro,
+    #team {
+      margin-bottom: 5px;
+    }
+
+    /* Card spacing - consistent throughout */
+    .card {
+      margin: 25px 0px;
+      padding: 15px;
+    }
+
+    /* Header section styling */
+    .h-section {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .h-section h2 {
+      font-size: 34px;
+      margin: 0 0 10px;
+    }
+
+    .h-section p {
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+
+    .h-section .divider {
+      margin-bottom: 0;
+    }
+
+    /* Grid spacing */
+    .grid {
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    /* Subteam grid with proper gap */
+    .subteam-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .subteam-grid:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 720px) {
+      .subteam-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Center and style subteam titles */
+    .subteam-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    /* Videos section styling */
+    .videos-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .video-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .video-column h3 {
+      margin-bottom: 15px;
+      margin-top: 0;
+      text-align: center;
+      font-size: 1.5em;
+      background: none;
+    }
+
+    .video-column video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .video-column video:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive video and image styling */
+    .subteam-grid video,
+    .subteam-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Container consistency */
+    .container-1140 {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .pcb-figure {
+      float: right;
+      width: 33.333%;
+      margin: 0 0 16px 24px;
+    }
+
+    .pcb-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .pcb-copy {
+      overflow: auto;
+    }
+
+    @media (max-width: 720px) {
+      .pcb-figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <div id="site-navbar"></div>
+
+  <div id="site-hero"></div>
+
+  <!-- Team Description -->
+  <section id="pitch">
+    <div class="container-1140">
+      <div class="h-section">
+        
+        <div class="divider divider--blue"></div>
+      </div>
+      <div class="card center">
+        <p>
+          This subsystem encompasses the backbone of the drone's electrical and control infrastructure, integration of all onboard and ground station hardware, and power systems onboard the drone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Power conversion board -->
+  <section id="BEC">
+    <div class="container-1140">
+      <div class="h-section">
+        <h2>Custom power converter board</h2>
+        <div class="divider divider--blue"></div>
+      </div>
+      <div class="card left pcb-copy">
+        <p>
+          This board converts power from the control systems battery to multiple voltages needed for powering onboard electronic
+          components, outputting 5V for the payload carrier, 12V for the companion computer, and 24V for the wireless access point. Additional ports are added to accomodate for the possibility of additional hardware such as a winch, FPV video transmitter, active cooling, lighting, etc. It can be powered between 13.4-21V DC, allowing a 4-5S lithium-ion battery to be used as a power source. 
+        </p>
+        <div>
+          <figure class="pcb-figure">
+            <img src="../assets/PCB_Cooker.jpg" alt="Custom power conversion board">
+          </figure>
+        </div>
+        <p>
+          Initially, we explored commercial off-the-shelf (COTS) solutions for power conversion, however, could not find hardware that outputs our required voltages in a compact footprint. Therefore, 
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="site-footer"></div>
+  
+  <script src="../components/load-components.js"></script>
+  <script src="../script.js"></script>
+</body>
+
+
+</html>
+
+
+
