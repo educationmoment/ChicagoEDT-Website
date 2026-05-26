@@ -151,6 +151,19 @@
       overflow: auto;
     }
 
+    .pcb-design {
+      float: center;
+      width: 100%;
+      margin: 0 0 16px 24px;
+    }
+
+    .pcb-design img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
     @media (max-width: 720px) {
       .pcb-figure {
         float: none;
@@ -189,9 +202,12 @@
         <div class="divider divider--blue"></div>
       </div>
       <div class="card left pcb-copy">
+        <figure class="pcb-design">
+          <img src="../assets/BEC_PCB_design.png"></img>
+        </figure>
         <p>
           This board converts power from the control systems battery to multiple voltages needed for powering onboard electronic
-          components, outputting 5V for the payload carrier, 12V for the companion computer, and 24V for the wireless access point. Additional ports are added to accomodate for the possibility of additional hardware such as a winch, FPV video transmitter, active cooling, lighting, etc. It can be powered between 13.4-21V DC, allowing a 4-5S lithium-ion battery to be used as a power source. 
+          components, outputting 5V for the payload carrier, 12V for the companion computer, and 24V for the wireless access point. It can be powered between 13.4-21V DC, allowing a 4-5S lithium-ion battery to be used as a power source. 
         </p>
         <div>
           <figure class="pcb-figure">
@@ -199,11 +215,10 @@
           </figure>
         </div>
         <p>
-          Initially, we explored commercial off-the-shelf (COTS) solutions for power conversion, however, could not find hardware that outputs our required voltages in a compact footprint. Therefore, 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Initially, we explored commercial off-the-shelf (COTS) solutions for power conversion, however, could not find hardware that outputs our required voltages in a compact footprint, especially with requiring a 24V step up cconverter. Therefore, we designed 5V and 12V buck converters and a 24V boost converter on a single board with a footprint of 45mm x 45mm, a size that can easily fit onboard a drone, while only using components with 0603 or larger packages to facilitate manual board assembly.
+        </p>
+        <p>
+          Additional output ports are added to accomodate for the possibility of additional hardware such as a winch, FPV video transmitter, active cooling, lighting, etc. as well as potential use in other EDT projects.
         </p>
       </div>
     </div>
