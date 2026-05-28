@@ -188,34 +188,45 @@
       </div>
       <div class="card center">
         <p>
-          This subsystem encompasses the backbone of the drone's electrical and control infrastructure, integration of all onboard and ground station hardware, and power systems onboard the drone.
+          Also known as the electrical team, this subsystem designs the backbone of the drone's electrical and control infrastructure, integration of all onboard and ground station hardware, and power systems onboard the drone.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Power conversion board -->
-  <section id="BEC">
+  <section id="power">
     <div class="container-1140">
       <div class="h-section">
-        <h2>Custom power converter board</h2>
+        <h2>Power</h2>
         <div class="divider divider--blue"></div>
       </div>
+      <div class="card left pcb-copy">
+        <p>This subsystem encompasses power infrastructure for all equipment onboard the drone, including batteries, power distribution, and voltage conversion as well as assembly and solidering. Design factors prioritize efficiency to ensure sufficient flight time, and safety to handle the high currents needed for propulsion.</p>
+        <div></div>
+        <p>The drone is powered by 1-3 6S 4500 mAH lithium-ion battery packs in parallel for propulsion, in addition to an auxillary battery for avionics power. This choice of battery configuration allows for flexibility in operations by allowing the use of less batteries for shorter flight missions while balancing efficiency for longer flight missions. In addition, the individual battery packs being under 100 Wh each to allow for ease of transporation by parcel shipment or in carry-on lugguage on a flight while staying under FAA and DOT allowed battery capacity limit. The propulsion batteries are not used for avionics power (except the flight controller) due to unclean power and voltage fluctuations from the motors' current draw.</p>
+        <div></div>
+        <p>Power for the 4 motors/ESCs is distributed witht the Matek FCHUB power distribution board (PDB). This board provides 4 high current outputs for the ESCs. It contains shunt resistor for measuring current and a voltage divider for battery voltage monitoring through the flight controller. It also contains regulated 12V, 5V, and 3.3V power, althought only the 5V bus is used for power to the flight controller. Power for avionics is provided by a custom designed voltage converter board. </p>
+        <div></div>
+        <p>Initially, we worked on designing a custom power distribution board for propulsion alongside designing the voltage converter board. However, we later decided to use a commercial off-the-shelf power distribution board mainly due to high manufacturing costs to fabricate a board with sufficient copper thickness and trace width.</p>
+      </div>
+      <h3 style="text-align: center;">Custom Multi-Voltage Converter Board</h2>
+      
       <div class="card left pcb-copy">
         <figure class="pcb-design">
           <img src="../assets/BEC_PCB_design.png"></img>
         </figure>
         <p>
           This board converts power from the control systems battery to multiple voltages needed for powering onboard electronic
-          components, outputting 5V for the payload carrier, 12V for the companion computer, and 24V for the wireless access point. It can be powered between 13.4-21V DC, allowing a 4-5S lithium-ion battery to be used as a power source. 
+          components, outputting 5V for the payload carrier, 12V for the companion computer, and 24V for the wireless access point. It can be powered between 13.4-21V DC, allowing a 4-5S lithium-ion battery to be used as a power source.
         </p>
         <div>
           <figure class="pcb-figure">
-            <img src="../assets/PCB_Cooker.jpg" alt="Custom power conversion board">
+            <img src="../assets/PCB_Cooker.jpg" alt="PCBs reflowed on hot plate">
           </figure>
         </div>
         <p>
-          Initially, we explored commercial off-the-shelf (COTS) solutions for power conversion, however, could not find hardware that outputs our required voltages in a compact footprint, especially with requiring a 24V step up cconverter. Therefore, we designed 5V and 12V buck converters and a 24V boost converter on a single board with a footprint of 45mm x 45mm, a size that can easily fit onboard a drone, while only using components with 0603 or larger packages to facilitate manual board assembly.
+          We first explored commercial off-the-shelf (COTS) solutions for power conversion, however, could not find hardware that outputs our required voltages in a compact footprint, especially with requiring a 24V step up cconverter. Therefore, we designed 5V and 12V buck converters and a 24V boost converter on a single board with a footprint of 45mm x 45mm, a size that can easily fit onboard a drone, while only using components with 0603 or larger packages to facilitate manual board assembly.
         </p>
         <p>
           Additional output ports are added to accomodate for the possibility of additional hardware such as a winch, FPV video transmitter, active cooling, lighting, etc. as well as potential use in other EDT projects.
