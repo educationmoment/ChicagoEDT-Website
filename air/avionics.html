@@ -153,8 +153,9 @@
 
     .pcb-design {
       float: center;
-      width: 100%;
-      margin: 0 0 16px 24px;
+      align: center;
+      width: 95%;
+      margin: 4px 4px 16px 24px;
     }
 
     .pcb-design img {
@@ -191,10 +192,27 @@
           Also known as the electrical team, this subsystem designs the backbone of the drone's electrical and control infrastructure, integration of all onboard and ground station hardware, and power systems onboard the drone.
         </p>
       </div>
+      <figure class="pcb-design">
+          <img src="../assets/Drone Electrical System Small.png"></img>
+          <a href="../assets/Drone Electrical System Large.png"><h5>Full size view</h5></a>
+      </figure>
+      <h3 style="text-align: center;">Control Systems</h2>
+      <div class="card left pcb-copy">
+        <p>The UAS employs a distributed control architecture consisting of a flight controller and a companion computer. The flight controller is responsible for low-level flight dynamics, stabilization, and waypoint-based navigation, while the companion computer performs computationally intensive tasks such as object detection, target-seeking navigation, aerial imaging, and mission-specific autonomous flight algorithms. Although both systems operate collaboratively, each is paired with an independent wireless communication link with its respective ground operator's control station.
+        </p>
+        <div></div>
+        <p>The CubePilot Orange Cube serves as the primary flight controller responsible for motion control, managing stabilization, and autonomous waypoint navigation of the drone. The Orange Cube was selected for its high-performance STM32H7 microcontroller, which provides sufficient computational capability for advanced ArduPilot flight control functions. Its modular connector-based design allows access to all I/O interfaces without soldering, simplifying prototyping, assembly, and future system modifications. Flight telemetry, status data, and configuration parameters are transmitted to the ground control station through RFD900 telemetry radios, enabling mission monitoring and vehicle control using ArduPilot Mission Planner or QGroundControl software.</p>
+        <div></div>
+        <p>Positioning and navigation are provided by the Here4 GNSS receiver, which supports multiple satellite constellations to improve positioning accuracy, and startup convergence time. When used in conjunction with a Here4 Base station at the ground control station, the system supports Real-Time Kinematic (RTK) positioning, potentially achieving centimeter-level positioning accuracy.</p>
+        <div></div>
+        <p>Higher-level autonomous functions are executed on an NVIDIA Jetson Orin Nano companion computer. Using imagery captured by a Raspberry Pi HQ Camera equipped with a wide-angle lens, the Jetson processes aerial imagery to detect mission targets and ground control points, estimate their locations, and generate navigation commands that are transmitted to the flight controller. This architecture enables autonomous target acquisition and target-seeking flight while maintaining the flight controller's responsibility for vehicle stability and trajectory execution.</p>
+        <div></div>
+        <p>Communication between the companion computer and the payload operator's ground station is provided through a pair of UISP AirMax Bullet wireless access points. This wireless network system supports long-range LAN connectivity, enabling reliable command and control of mission payloads as well as real-time transmission of camera video stream and other mission data.</p>
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Power conversion board -->
   <section id="power">
     <div class="container-1140">
       <div class="h-section">
@@ -202,13 +220,17 @@
         <div class="divider divider--blue"></div>
       </div>
       <div class="card left pcb-copy">
-        <p>This subsystem encompasses power infrastructure for all equipment onboard the drone, including batteries, power distribution, and voltage conversion as well as assembly and solidering. Design factors prioritize efficiency to ensure sufficient flight time, and safety to handle the high currents needed for propulsion.</p>
+        <p>This subsystem encompasses the power infrastructure for all equipment onboard the UAS, including batteries, power distribution, voltage conversion, wiring, and assembly. Key design considerations include efficiency to maximize flight endurance and electrical safety to reliably support the high currents required for propulsion.</p>
         <div></div>
-        <p>The drone is powered by 1-3 6S 4500 mAH lithium-ion battery packs in parallel for propulsion, in addition to an auxillary battery for avionics power. This choice of battery configuration allows for flexibility in operations by allowing the use of less batteries for shorter flight missions while balancing efficiency for longer flight missions. In addition, the individual battery packs being under 100 Wh each to allow for ease of transporation by parcel shipment or in carry-on lugguage on a flight while staying under FAA and DOT allowed battery capacity limit. The propulsion batteries are not used for avionics power (except the flight controller) due to unclean power and voltage fluctuations from the motors' current draw.</p>
+        <p>The aircraft is powered by one to three 6S 4500 mAh lithium-ion battery packs connected in parallel for propulsion, along with a dedicated auxiliary battery for avionics power. This battery architecture provides operational flexibility by allowing fewer batteries to be used for shorter missions while enabling increased energy capacity for longer-duration flights. Additionally, each battery pack remains below 100 Wh, simplifying transportation by parcel shipment and commercial air travel while remaining within FAA and DOT lithium battery limits.</p>
         <div></div>
-        <p>Power for the 4 motors/ESCs is distributed witht the Matek FCHUB power distribution board (PDB). This board provides 4 high current outputs for the ESCs. It contains shunt resistor for measuring current and a voltage divider for battery voltage monitoring through the flight controller. It also contains regulated 12V, 5V, and 3.3V power, althought only the 5V bus is used for power to the flight controller. Power for avionics is provided by a custom designed voltage converter board. </p>
+        <p>The propulsion batteries are not used to power avionics systems (with the exception of the flight controller) due to electrical noise and voltage fluctuations caused by the motors' high current draw. Separating propulsion and avionics power improves system reliability and reduces the risk of interference with sensitive electronics, and allows for powering avionics without powering motors for safer maintenance and setup. The flight controller is powered by both the propulsion and avionics batteries, providing redundancy in the event of an avionics power system failure.</p>
         <div></div>
-        <p>Initially, we worked on designing a custom power distribution board for propulsion alongside designing the voltage converter board. However, we later decided to use a commercial off-the-shelf power distribution board mainly due to high manufacturing costs to fabricate a board with sufficient copper thickness and trace width.</p>
+        <p>The brushless DC motors are controlled by Hobbywing H60A electronic speed controllers (ESCs). These ESCs interface with the flight controller over a CAN bus using the DroneCAN protocol, enabling bidirectional communication and real-time telemetry, including battery voltage, current draw, motor speed, and ESC status. Compared to conventional PWM-based control, CAN communication is more robust and less susceptible to electromagnetic interference (EMI) generated by onboard electronics and power systems.</p>
+        <div></div>
+        <p>Power distribution to the four motors and ESCs is provided by a Matek FCHUB power distribution board (PDB). The board includes four high-current outputs for the ESCs, a shunt resistor for current measurement, and a voltage divider for battery voltage monitoring through the flight controller. It also provides regulated 12 V, 5 V, and 3.3 V outputs, although only the 5 V rail is utilized to power the flight controller. Power for the remaining avionics systems is supplied by a custom-designed voltage converter board.</p>
+        <div></div>
+        <p>During the initial design phase, a custom propulsion power distribution board was developed alongside the voltage converter board. However, a commercial off-the-shelf (COTS) power distribution board was ultimately selected due to the high manufacturing costs associated with fabricating a PCB capable of handling the combined motor currents. Achieving the required current capacity would have necessitated increased copper thickness, layers, and wider traces, significantly increasing fabrication cost and complexity.</p>
       </div>
       <h3 style="text-align: center;">Custom Multi-Voltage Converter Board</h2>
       
@@ -217,8 +239,14 @@
           <img src="../assets/BEC_PCB_design.png"></img>
         </figure>
         <p>
-          This board converts power from the control systems battery to multiple voltages needed for powering onboard electronic
-          components, outputting 5V for the payload carrier, 12V for the companion computer, and 24V for the wireless access point. It can be powered between 13.4-21V DC, allowing a 4-5S lithium-ion battery to be used as a power source.
+          The custom multi-voltage converter board provides regulated power for onboard avionics and payload systems. The board accepts an input voltage range of 13.4–21 VDC, allowing it to operate from either a 4S or 5S lithium-ion battery pack.
+          <div></div>
+          The board generates three regulated output rails:
+          <ul>
+            <li>5 V for payload carrier electronics and low-voltage peripherals</li>
+            <li>12 V for the companion computer</li>
+            <li>24 V for the wireless access point</li>
+        </ul>
         </p>
         <div>
           <figure class="pcb-figure">
@@ -226,10 +254,9 @@
           </figure>
         </div>
         <p>
-          We first explored commercial off-the-shelf (COTS) solutions for power conversion, however, could not find hardware that outputs our required voltages in a compact footprint, especially with requiring a 24V step up cconverter. Therefore, we designed 5V and 12V buck converters and a 24V boost converter on a single board with a footprint of 45mm x 45mm, a size that can easily fit onboard a drone, while only using components with 0603 or larger packages to facilitate manual board assembly.
-        </p>
-        <p>
-          Additional output ports are added to accomodate for the possibility of additional hardware such as a winch, FPV video transmitter, active cooling, lighting, etc. as well as potential use in other EDT projects.
+          Commercial off-the-shelf (COTS) power conversion solutions were initially evaluated; however, no suitable product was identified that could provide the required output voltages within a compact footprint, particularly due to the need for a 24 V boost converter. As a result, a custom power conversion board was developed that integrates 5 V and 12 V buck converters alongside a 24 V boost converter on a single 45 mm × 45 mm PCB. The compact form factor allows the board to be easily integrated into small unmanned aerial systems while maintaining manufacturability through the exclusive use of components in 0603 or larger packages, facilitating  manual assembly and rework.</p>
+          <div></div>
+          <p>Additional power output ports were incorporated to support future expansion and possible integration of other auxiliary hardware such as a winch, FPV video transmitter, active cooling system, lighting, or other mission-specific payloads. These additional outputs also increase the board's versatility for use in future robotics and UAS projects.</p>
         </p>
       </div>
     </div>
