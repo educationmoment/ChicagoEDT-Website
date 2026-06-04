@@ -1,0 +1,276 @@
+<!doctype html>
+<!-- author: aakash bajaj- @educationmoment -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chicago Engineering Design Team @ UIC">
+  <title>EDT - AIR Avionics</title>
+  <link rel="icon" type="image/x-icon" href="/assets/logo.ico">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Consistent section spacing */
+    section {
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    /* Reduce spacing between sections */
+    #pitch,
+    #videos,
+    #subteams-intro,
+    #team {
+      margin-bottom: 5px;
+    }
+
+    /* Card spacing - consistent throughout */
+    .card {
+      margin: 25px 0px;
+      padding: 15px;
+    }
+
+    /* Header section styling */
+    .h-section {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .h-section h2 {
+      font-size: 34px;
+      margin: 0 0 10px;
+    }
+
+    .h-section p {
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+
+    .h-section .divider {
+      margin-bottom: 0;
+    }
+
+    /* Grid spacing */
+    .grid {
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    /* Subteam grid with proper gap */
+    .subteam-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .subteam-grid:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 720px) {
+      .subteam-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Center and style subteam titles */
+    .subteam-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    /* Videos section styling */
+    .videos-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .video-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .video-column h3 {
+      margin-bottom: 15px;
+      margin-top: 0;
+      text-align: center;
+      font-size: 1.5em;
+      background: none;
+    }
+
+    .video-column video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .video-column video:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive video and image styling */
+    .subteam-grid video,
+    .subteam-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Container consistency */
+    .container-1140 {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .pcb-figure {
+      float: right;
+      width: 33.333%;
+      margin: 0 0 16px 24px;
+    }
+
+    .pcb-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .pcb-copy {
+      overflow: auto;
+    }
+
+    .pcb-design {
+      float: center;
+      align: center;
+      width: 95%;
+      margin: 4px 4px 16px 24px;
+    }
+
+    .pcb-design img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 720px) {
+      .pcb-figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <div id="site-navbar"></div>
+
+  <div id="site-hero"></div>
+
+  <!-- Team Description -->
+  <section id="pitch">
+    <div class="container-1140">
+      <div class="h-section">
+        
+        <div class="divider divider--blue"></div>
+      </div>
+      <div class="card center">
+        <p>
+          Also known as the electrical team, this subsystem designs the backbone of the drone's electrical and control infrastructure, integration of all onboard and ground station hardware, and power systems onboard the drone.
+        </p>
+      </div>
+      <figure class="pcb-design">
+          <img src="../assets/Drone Electrical System Small.png"></img>
+          <a href="../assets/Drone Electrical System Large.png"><h5>Full size diagram</h5></a>
+      </figure>
+      <h3 style="text-align: center;">Control Systems</h2>
+      <div class="card left pcb-copy">
+        <p>The UAS employs a distributed control architecture consisting of a flight controller and a companion computer. The flight controller is responsible for low-level flight dynamics, stabilization, and waypoint-based navigation, while the companion computer performs computationally intensive tasks such as object detection, target-seeking navigation, aerial imaging, and mission-specific autonomous flight algorithms. Although both systems operate collaboratively, each is paired with an independent wireless communication link with its respective ground operator's control station.
+        </p>
+        <div></div>
+        <p>The CubePilot Orange Cube serves as the primary flight controller responsible for motion control, managing stabilization, and autonomous waypoint navigation of the drone. The Orange Cube was selected for its high-performance STM32H7 microcontroller, which provides sufficient computational capability for advanced ArduPilot flight control functions. Its modular connector-based design allows access to all I/O interfaces without soldering, simplifying prototyping, assembly, and future system modifications. Flight telemetry, status data, and configuration parameters are transmitted to the ground control station through RFD900 telemetry radios, enabling mission monitoring and vehicle control using ArduPilot Mission Planner or QGroundControl software.</p>
+        <div></div>
+        <p>Positioning and navigation are provided by the Here4 GNSS receiver, which supports multiple satellite constellations to improve positioning accuracy, and startup convergence time. When used in conjunction with a Here4 Base station at the ground control station, the system supports Real-Time Kinematic (RTK) positioning, potentially achieving centimeter-level positioning accuracy.</p>
+        <div></div>
+        <p>Higher-level autonomous functions are executed on an NVIDIA Jetson Orin Nano companion computer. Using imagery captured by a Raspberry Pi HQ Camera equipped with a wide-angle lens, the Jetson processes aerial imagery to detect mission targets and ground control points, estimate their locations, and generate navigation commands that are transmitted to the flight controller. This architecture enables autonomous target acquisition and target-seeking flight while maintaining the flight controller's responsibility for vehicle stability and trajectory execution.</p>
+        <div></div>
+        <p>Communication between the companion computer and the payload operator's ground station is provided through a pair of UISP AirMax Bullet wireless access points. This wireless network system supports long-range LAN connectivity, enabling reliable command and control of mission payloads as well as real-time transmission of camera video stream and other mission data.</p>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="power">
+    <div class="container-1140">
+      <div class="h-section">
+        <h2>Power</h2>
+        <div class="divider divider--blue"></div>
+      </div>
+      <div class="card left pcb-copy">
+        <p>This subsystem encompasses the power infrastructure for all equipment onboard the UAS, including batteries, power distribution, voltage conversion, wiring, and assembly. Key design considerations include efficiency to maximize flight endurance and electrical safety to reliably support the high currents required for propulsion.</p>
+        <div></div>
+        <p>The aircraft is powered by one to three 6S 4500 mAh lithium-ion battery packs connected in parallel for propulsion, along with a dedicated auxiliary battery for avionics power. This battery architecture provides operational flexibility by allowing fewer batteries to be used for shorter missions while enabling increased energy capacity for longer-duration flights. Additionally, each battery pack remains below 100 Wh, simplifying transportation by parcel shipment and commercial air travel while remaining within FAA and DOT lithium battery limits.</p>
+        <div></div>
+        <p>The propulsion batteries are not used to power avionics systems (with the exception of the flight controller) due to electrical noise and voltage fluctuations caused by the motors' high current draw. Separating propulsion and avionics power improves system reliability and reduces the risk of interference with sensitive electronics, and allows for powering avionics without powering motors for safer maintenance and setup. The flight controller is powered by both the propulsion and avionics batteries, providing redundancy in the event of an avionics power system failure.</p>
+        <div></div>
+        <p>The brushless DC motors are controlled by Hobbywing H60A electronic speed controllers (ESCs). These ESCs interface with the flight controller over a CAN bus using the DroneCAN protocol, enabling bidirectional communication and real-time telemetry, including battery voltage, current draw, motor speed, and ESC status. Compared to conventional PWM-based control, CAN communication is more robust and less susceptible to electromagnetic interference (EMI) generated by onboard electronics and power systems.</p>
+        <div></div>
+        <p>Power distribution to the four motors and ESCs is provided by a Matek FCHUB power distribution board (PDB). The board includes four high-current outputs for the ESCs, a shunt resistor for current measurement, and a voltage divider for battery voltage monitoring through the flight controller. It also provides regulated 12 V, 5 V, and 3.3 V outputs, although only the 5 V rail is utilized to power the flight controller. Power for the remaining avionics systems is supplied by a custom-designed voltage converter board.</p>
+        <div></div>
+        <p>During the initial design phase, a custom propulsion power distribution board was developed alongside the voltage converter board. However, a commercial off-the-shelf (COTS) power distribution board was ultimately selected due to the high manufacturing costs associated with fabricating a PCB capable of handling the combined motor currents. Achieving the required current capacity would have necessitated increased copper thickness, layers, and wider traces, significantly increasing fabrication cost and complexity.</p>
+      </div>
+      <h3 style="text-align: center;">Custom Multi-Voltage Converter Board</h2>
+      
+      <div class="card left pcb-copy">
+        <figure class="pcb-design">
+          <img src="../assets/BEC_PCB_design.png"></img>
+        </figure>
+        <p>
+          The custom multi-voltage converter board provides regulated power for onboard avionics and payload systems. The board accepts an input voltage range of 13.4–21 VDC, allowing it to operate from either a 4S or 5S lithium-ion battery pack.
+          <div></div>
+          The board generates three regulated output rails:
+          <ul>
+            <li>5 V for payload carrier electronics and low-voltage peripherals</li>
+            <li>12 V for the companion computer</li>
+            <li>24 V for the wireless access point</li>
+        </ul>
+        </p>
+        <div>
+          <figure class="pcb-figure">
+            <img src="../assets/PCB_Cooker.jpg" alt="PCBs reflowed on hot plate">
+          </figure>
+        </div>
+        <p>
+          Commercial off-the-shelf (COTS) power conversion solutions were initially evaluated; however, no suitable product was identified that could provide the required output voltages within a compact footprint, particularly due to the need for a 24 V boost converter. As a result, a custom power conversion board was developed that integrates 5 V and 12 V buck converters alongside a 24 V boost converter on a single 45 mm × 45 mm PCB. The compact form factor allows the board to be easily integrated into small unmanned aerial systems while maintaining manufacturability through the exclusive use of components in 0603 or larger packages, facilitating  manual assembly and rework.</p>
+          <div></div>
+          <p>Additional power output ports were incorporated to support future expansion and possible integration of other auxiliary hardware such as a winch, FPV video transmitter, active cooling system, lighting, or other mission-specific payloads. These additional outputs also increase the board's versatility for use in future robotics and UAS projects.</p>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="site-footer"></div>
+  
+  <script src="../components/load-components.js"></script>
+  <script src="../script.js"></script>
+</body>
+
+
+</html>
+
+
+
