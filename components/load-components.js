@@ -55,6 +55,13 @@ const COMPONENTS = [
     pages: ['air/avionics.html']
   },
   {
+    name: 'hero-air-mechanical',
+    target: '#site-hero',
+    html: resolveComponentPath('hero-air/hero-air-mechanical.html'),
+    css: resolveComponentPath('hero-air/hero-air-mechanical.css'),
+    pages: ['air/mechanical.html']
+  },
+  {
     name: 'hero-robobrawl',
     target: '#site-hero',
     html: resolveComponentPath('hero-robobrawl/hero-robobrawl.html'),

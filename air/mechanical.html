@@ -1,0 +1,247 @@
+<!doctype html>
+<!-- author: aakash bajaj- @educationmoment -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chicago Engineering Design Team @ UIC">
+  <title>EDT - AIR Avionics</title>
+  <link rel="icon" type="image/x-icon" href="/assets/logo.ico">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Consistent section spacing */
+    section {
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    /* Reduce spacing between sections */
+    #pitch,
+    #videos,
+    #subteams-intro,
+    #team {
+      margin-bottom: 5px;
+    }
+
+    /* Card spacing - consistent throughout */
+    .card {
+      margin: 25px 0px;
+      padding: 15px;
+    }
+
+    /* Header section styling */
+    .h-section {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .h-section h2 {
+      font-size: 34px;
+      margin: 0 0 10px;
+    }
+
+    .h-section p {
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+
+    .h-section .divider {
+      margin-bottom: 0;
+    }
+
+    /* Grid spacing */
+    .grid {
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    /* Subteam grid with proper gap */
+    .subteam-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .subteam-grid:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 720px) {
+      .subteam-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Center and style subteam titles */
+    .subteam-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    /* Videos section styling */
+    .videos-grid {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .video-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .video-column h3 {
+      margin-bottom: 15px;
+      margin-top: 0;
+      text-align: center;
+      font-size: 1.5em;
+      background: none;
+    }
+
+    .video-column video {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .video-column video:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive video and image styling */
+    .subteam-grid video,
+    .subteam-grid img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* Container consistency */
+    .container-1140 {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .design-figure {
+      float: right;
+      width: 33.333%;
+      margin: 0 0 16px 24px;
+    }
+
+    .design-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .design-copy {
+      overflow: auto;
+    }
+
+    .design {
+      float: center;
+      align: center;
+      width: 95%;
+      margin: 4px 4px 16px 24px;
+    }
+
+    .pcb-design img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 720px) {
+      .pcb-figure {
+        float: none;
+        width: 100%;
+        margin: 0 0 16px 0;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <div id="site-navbar"></div>
+
+  <div id="site-hero"></div>
+
+  <!-- Team Description -->
+  <section id="pitch">
+    <div class="container-1140">
+      <div class="h-section">
+        
+        <div class="divider divider--blue"></div>
+      </div>
+      <div class="card center">
+        <p>
+          The mechanical team designs the airframe, propulsion, and aidrop system. They first design parts and assemblies using SolidWorks CAD software, then utilize rapid prototyping methods such as 3D printing and laser cutting to fabricate parts, and assemble with parts mostly fabricated in house.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="frame">
+    <div class="container-1140">
+      <div class="h-section">
+        <h2>Airframe</h2>
+        <div class="divider divider--blue"></div>
+      </div>   
+      <div class="card left design-copy">
+        <figure class="design-figure">
+          <img src="/assets/quad armed.jpg"></img>
+        </figure>
+        <p>The airframe consists of laser-cut acrylic plates, custom 3D-printed mounts, carbon fiber arms, and standard metric fasteners. The structure was designed to securely support all avionics, payload, and power system components while balancing durability, low weight, and ease of manufacturing. The body adopts a triple-decker  configuration, allowing components to be distributed efficiently while maintaining a compact footprint at the body. The arms are attached with a center clamp connector at the lower level. Concentrating the majority of the system mass near the geometric center of the aircraft facilitates center-of-gravity management and contributes to stable flight characteristics.</p>
+        <div></div>
+        <p>The selection of propulsion components, including the motors, propellers, and battery system, has a significant impact on vehicle efficiency and endurance. Performance calculations with several configurations were conducted using <a href="https://ecalc.ch/xcoptercalc.php">xcopterCalc Multicopter Calculator</a> to evaluate candidate configurations and identify a combination that maximizes continuous flight time and achievable range while carrying the required payload. The propulsion subsystem consists of Emax ECOII 3115 500KV motors paired with HQProp MacroQuad 11x7.5 3-Blade propellers, and three Auline 6S 4500 mAh lithium-ion batteries in parallel. When carrying a 1kg package, we have an estimated average flight time of 11 minutes and 2.5 miles range.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="airdrop">
+    <div class="container-1140">
+      <div class="h-section">
+        <h2>Airdrop and Delivery</h2>
+        <div class="divider divider--blue"></div>
+      </div>   
+      <div class="card left design-copy">
+        <figure class="design-figure">
+          <img src="/assets/newclawpic.jpg"></img>
+        </figure>
+        <p>The airdrop system utilizes a claw mechanism to hold objects for delivery and retrieval. It can pick up and release rigid cubes, soft juggling balls, buckets, and more objects without physical human intervention. It is composed of a laser cut acrylic chassis, 3D printed claw arms, and two 25kg servo motors. The servos are symmetrically fitted next to each other for equivalent torque, and they turn in unison for the opening and closing movement of the claw. The two opposing claw arms mesh together with integrated spur gears, producing symmetrical actuations. The mechanism is held together with custom acrylic brackets that are form-fitted to the plastic servo horn, and mounted onto the bottom plate of the drone with a 3D printed right angle gusset, 
+
+
+        The claw mechanism was chosen as the most viable option to complete the package delivery mission, as it would be easy to integrate into the existing structure and has a consistent mechanical actuation pattern. Other mechanisms could have been specifically designed to fit the cube exactly, but then we would need an alternate mechanism to hold the ball, which seemed impractical. The claw is composed of laser cut acrylic, 3d printed pla, and adhesives that make up the mechanical functions of opening and closing, as well as the mounting hardware to the frame. The only electronics are the two 25kg digital servo motors which are symmetrically fitted next to each other for equivalent torque. These servos would turn in unison to produce the opening and closing movement of the claw. The servos were attached to the claw arm by custom acrylic brackets that were form-fitted to the plastic servo horn. the two opposing claw arms mesh together in a spur gear mechanism, which are integrated into the arm shape. This produced symmetrical motion and allowed one servo to power both actuations. the housing mechanism is mounted onto the bottom plate of the drone with a custom 3d printed 90 degree gusset, which is secure enough to hold the weight of the claw, 1kg cube, and excess strain on the claw during flight. Some issues encountered while designing the claw was issues with the gear mechanism, where there was too much backlash and gear slop which caused slippage and made the rotation inconsistent. We solved this by testing different gear variants and spacing, and with more precise calculations the slippage got drastically reduced. Another issue was with the gripping attachment, where the cube would slip out because of the lack of friction between the PLA and the cube. This was a simpler fix as we researched composite materials that could line the inside face of the claw, to grip the package better.
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="site-footer"></div>
+  
+  <script src="../components/load-components.js"></script>
+  <script src="../script.js"></script>
+</body>
+
+
+</html>
+
+
+
