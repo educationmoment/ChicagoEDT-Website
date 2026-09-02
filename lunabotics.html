@@ -9,29 +9,181 @@
   <link rel="icon" type="image/x-icon" href="assets/logo.ico">
   <link rel="stylesheet" href="./styles.css">
   <style>
-    /* Image grid styling */
-    .image-grid {
+    /* Robot gallery styling */
+    .robot-gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      grid-template-rows: repeat(2, 300px);
       gap: 20px;
+      align-items: stretch;
     }
 
-    .image-grid img {
+    #lunabot-3d-viewer {
+      grid-row: 1 / span 2;
       width: 100%;
-      height: 300px; /* Fixed height */
+      min-width: 0;
+      min-height: 620px;
+    }
+
+    .robot-gallery-grid img {
+      width: 100%;
+      height: 100%;
       border-radius: 8px;
       object-fit: cover;
     }
 
+    .mission-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .mission-copy p {
+      margin: 0 0 16px;
+      font-size: 1.25rem;
+      line-height: 1.75;
+    }
+
+    .mission-copy h3 {
+      margin: 0 0 18px;
+      color: var(--uic-blue);
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    
+    .mission-copy h3:not(:first-child) {
+      margin-top: 28px;
+    }
+
+    .mission-goals {
+      display: grid;
+      gap: 10px;
+      margin: -2px 0 0;
+      padding-left: 1.35rem;
+      color: #333;
+      font-size: 1.16rem;
+      line-height: 1.6;
+    }
+
+    .mission-goals li {
+      padding-left: 4px;
+    }
+
+    .mission-goals li::marker {
+      color: var(--uic-red);
+      font-size: 1.05em;
+    }
+
+    .mission-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .mission-photo-panel {
+      min-height: 100%;
+    }
+
+    .mission-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .leadership-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    .leader-profile {
+      display: flex;
+      flex-direction: column;
+      flex: 0 1 calc((100% - 60px) / 4);
+      gap: 12px;
+      max-width: 270px;
+      min-width: 0;
+    }
+
+    .leader-photo-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 1px solid var(--muted);
+      border-radius: 8px;
+      background: linear-gradient(135deg, #f4f4f4 0%, #e4e7eb 100%);
+      box-shadow: var(--shadow-card);
+    }
+
+    .leader-photo-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+    }
+
+    .leader-photo-frame img.is-loaded {
+      opacity: 1;
+    }
+
+    .leader-info-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 980px) {
+      .leader-profile {
+        flex-basis: calc((100% - 20px) / 2);
+        max-width: 360px;
+      }
+    }
+
     @media (max-width: 720px) {
-      .image-grid {
+      .mission-overview {
         grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .mission-photo-panel {
+        min-height: 0;
+      }
+
+      .mission-photo {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+      }
+
+      .robot-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      #lunabot-3d-viewer {
+        grid-row: auto;
+        min-height: 360px;
+      }
+
+      .robot-gallery-grid img {
+        height: 300px;
+      }
+
+      .leader-profile {
+        flex-basis: 100%;
+        max-width: none;
       }
     }
   </style>
 </head>
 <body id="top">
-  
+
   <div id="site-navbar"></div>
 
   <div id="site-hero"></div>
@@ -42,18 +194,24 @@
         <h2>Mission to the Moon</h2>
         <div class="divider divider--accent"></div>
       </div>
-      <div class="grid grid-3">
-        <div class="card center">
-          <strong>Autonomous Operation</strong>
-          <div class="muted">Vision & AI navigation</div>
+      <div class="card mission-overview">
+        <div class="mission-copy">
+          <h3>What is Lunabotics?</h3>
+          <p>
+            The Lunabotics team is a student-led engineering design team within EDT that competes in NASA's Lunabotics Challenge.
+            The competition is held annually at Kennedy Space Center, where universities across the country design and build a rover
+            with the goal of autonomously excavating lunar regolith using NASA's Systems Engineering principles to manage the project.
+          </p>
+          <h3>Team Goals</h3>
+          <ul class="mission-goals">
+            <li>Design and build a rover from scratch.</li>
+            <li>Learn to apply NASA's Systems Engineering principles efficiently.</li>
+            <li>Compete and do well in the annual Lunabotics Challenge at Kennedy Space Center.</li>
+            <li>Have fun and get to know one another!</li>
+          </ul>
         </div>
-        <div class="card center">
-          <strong>Excavation Systems</strong>
-          <div class="muted">Efficient regolith handling</div>
-        </div>
-        <div class="card center">
-          <strong>NASA Challenge</strong>
-          <div class="muted">Annual competition</div>
+        <div class="mission-photo-panel">
+          <img class="mission-photo" src="assets/inspection_lunabot.jpg" alt="Lunabotics robot">
         </div>
       </div>
     </div>
@@ -62,15 +220,14 @@
   <section id="specs">
     <div class="container-1140">
       <div class="h-section">
-        <h2>Robot Gallery</h2>
+        <h2>Team Gallery</h2>
         <div class="divider divider--accent"></div>
       </div>
       <div class="card">
-        <div class="image-grid">
-          <img src="assets/bunny1.jpg" alt="Robot Front View">
-          <img src="assets/miss.png" alt="Robot Mission">
-          <img src="assets/elijah.jpg" alt="Robot Testing">
-          <img src="assets/berm.jpg" alt="Robot on Berm">
+        <div class="robot-gallery-grid">
+          <div id="lunabot-3d-viewer" aria-label="Interactive 3D Lunabotics robot model"></div>
+          <img src="assets/luna_award.jpeg" alt="Team Award">
+          <img src="assets/luna_exolith_photo.jpg" alt="Team on Berm">
         </div>
       </div>
     </div>
@@ -85,19 +242,19 @@
       <div class="grid grid-4">
         <div class="card center">
           <strong>Autonomous Navigation</strong>
-          <div class="muted">ROS, SLAM</div>
+          <div class="muted">ROS2, SLAM</div>
         </div>
         <div class="card center">
-          <strong>CANbus</strong>
-          <div class="muted">CANbus Systems</div>
+          <strong>Serial Communication Protocol(s)</strong>
+          <div class="muted">CAN</div>
         </div>
         <div class="card center">
           <strong>Computer Vision</strong>
           <div class="muted">OpenCV, TensorFlow</div>
         </div>
         <div class="card center">
-          <strong>Motor Controllers</strong>
-          <div class="muted">SparkMax Motor Controllers</div>
+          <strong>CAD Software</strong>
+          <div class="muted">Solidworks</div>
         </div>
       </div>
     </div>
@@ -111,16 +268,16 @@
       </div>
       <div class="grid grid-3">
         <div class="card center">
-          <strong>1st Place Robotic Construction</strong>
+          <strong>#6th Place Overall</strong>
+          <div class="muted">May 2026</div>
+        </div>
+        <div class="card center">
+          <strong>#3rd Place Systems Engineering Paper</strong>
+          <div class="muted">May 2026</div>
+        </div>
+        <div class="card center">
+          <strong>#1st Place Robotic Construction</strong>
           <div class="muted">May 2025</div>
-        </div>
-        <div class="card center">
-          <strong>Innovation Award</strong>
-          <div class="muted">May 2024 / May 2025</div>
-        </div>
-        <div class="card center">
-          <strong>5th Place Autonomy Award</strong>
-          <div class="muted">May 2024 / May 2025</div>
         </div>
       </div>
     </div>
@@ -132,26 +289,60 @@
         <h2>Team Leadership</h2>
         <div class="divider divider--accent"></div>
       </div>
-      <div class="grid grid-4">
-        <div class="card center">
-          <strong>Fernanda Palomar</strong>
-          <div class="muted">Captain — Senior</div>
+      <div class="grid grid-4 leadership-grid">
+        <div class="leader-profile">
+          <div class="leader-photo-frame">
+            <img src="assets/leadership/lunabotics/christopher-doud.JPG" alt="Christopher Doud" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.hidden = true">
+          </div>
+          <div class="card center leader-info-card">
+            <strong>Christopher Doud</strong>
+            <div class="muted">Co-Captain — Sophomore</div>
+          </div>
         </div>
-        <div class="card center">
-          <strong>Aakash Bajaj</strong>
-          <div class="muted">Control Systems Lead — Junior</div>
+        <div class="leader-profile">
+          <div class="leader-photo-frame">
+            <img src="assets/leadership/lunabotics/jonathan-eskinder.png" alt="Jonathan Eskinder" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.hidden = true">
+          </div>
+          <div class="card center leader-info-card">
+            <strong>Jonathan Eskinder</strong>
+            <div class="muted">Co-Captain — Sophomore</div>
+          </div>
         </div>
-        <div class="card center">
-          <strong>George Ciuca</strong>
-          <div class="muted">Mechanical Lead — Senior</div>
+        <div class="leader-profile">
+          <div class="leader-photo-frame">
+            <img src="assets/leadership/lunabotics/anshukumar-maitra.jpeg" alt="Anshukumar Maitra" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.hidden = true">
+          </div>
+          <div class="card center leader-info-card">
+            <strong>Anshukumar Maitra</strong>
+            <div class="muted">Mechanical Lead — Junior</div>
+          </div>
         </div>
-        <div class="card center">
-          <strong>Nathan Morabito</strong>
-          <div class="muted">Electrical Lead — Junior</div>
+        <div class="leader-profile">
+          <div class="leader-photo-frame">
+            <img src="assets/leadership/lunabotics/amargoe-gagan.jpg" alt="Amargoe Gagan" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.hidden = true">
+          </div>
+          <div class="card center leader-info-card">
+            <strong>Amargoe Gagan</strong>
+            <div class="muted">Electrical Lead — Sophomore</div>
+          </div>
         </div>
-        <div class="card center">
-          <strong>Catherine Schuch</strong>
-          <div class="muted">Systems Engineering Lead — Junior</div>
+        <div class="leader-profile">
+          <div class="leader-photo-frame">
+            <img src="assets/leadership/lunabotics/tyler-fadenholz.jpg" alt="Tyler Fadenholz" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.hidden = true">
+          </div>
+          <div class="card center leader-info-card">
+            <strong>Tyler Fadenholz</strong>
+            <div class="muted">Controls Lead — Sophomore</div>
+          </div>
+        </div>
+        <div class="leader-profile">
+          <div class="leader-photo-frame">
+            <img src="assets/leadership/lunabotics/ragasri-yegatella.jpg" alt="Ragasri Yegatella" loading="lazy" decoding="async" onload="this.classList.add('is-loaded')" onerror="this.hidden = true">
+          </div>
+          <div class="card center leader-info-card">
+            <strong>Ragasri Yegatella</strong>
+            <div class="muted">Systems Lead — Junior</div>
+          </div>
         </div>
       </div>
     </div>
@@ -166,20 +357,20 @@
       <div class="grid grid-2">
         <div class="card">
           <h3>Source Code</h3>
-          <p class="muted">2025 Competition</p>
-          <a class="btn btn-dark-outline" href="https://github.com/educationmoment/EDT-Lunabotics-2025">GitHub</a>
+          <p class="muted">2026 Competition</p>
+          <a class="btn btn-dark-outline" href="https://github.com/educationmoment/EDT-Lunabotics-2026" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <div class="card">
           <h3>Post by UIC Engineering</h3>
-          <p class="muted">UIC Engineering report 2025</p>
-          <a class="btn btn-dark-outline" href="https://engineering.uic.edu/news-stories/uic-team-wins-first-place-at-nasa-lunabotics-competition/">UIC</a>
+          <p class="muted">UIC Engineering article</p>
+          <a class="btn btn-dark-outline" href="https://engineering.uic.edu/news-stories/uic-students-earn-top-10-finish-at-nasa-lunabotics-challenge/" target="_blank" rel="noopener noreferrer">UIC</a>
         </div>
       </div>
     </div>
   </section>
 
   <div id="site-footer"></div>
-  
+
   <script src="./components/load-components.js"></script>
   <script src="./script.js"></script>
 

@@ -68,6 +68,15 @@ const COMPONENTS = [
     css: '/air/3D/drone-3d-viewer.css',
     js: '/air/3D/drone-3d-viewer.js',
     pages: ['air/index.html']
+  },
+  {
+    name: 'lunabot-3d-viewer',
+    target: '#lunabot-3d-viewer',
+    html: '/lunabotics/3D/lunabot-3d-viewer.html',
+    css: '/lunabotics/3D/lunabot-3d-viewer.css',
+    js: '/lunabotics/3D/lunabot-3d-viewer.js',
+    module: true,
+    pages: ['lunabotics.html']
   }
 ];
 
@@ -131,8 +140,8 @@ async function loadComponent(component) {
       script.src = component.js;
       script.async = true;
 
-      // Use type="module" for drone-3d-viewer to support ES6 imports
-      if (component.name === 'drone-3d-viewer') {
+      // Use type="module" for 3D viewers to support ES module imports
+      if (component.module || component.name === 'drone-3d-viewer') {
         script.type = 'module';
       }
 
