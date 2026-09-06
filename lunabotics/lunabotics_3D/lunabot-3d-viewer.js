@@ -92,7 +92,7 @@ function addLights(THREE) {
 }
 
 function loadRobotModel(container, THREE, GLTFLoader, DRACOLoader) {
-  const modelSrc = container.dataset.modelSrc || '/assets/3D/lunabot.glb';
+  const modelSrc = container.dataset.modelSrc || 'assets/3D/lunabot.glb';
   const loader = new GLTFLoader();
   const dracoLoader = new DRACOLoader();
 

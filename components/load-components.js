@@ -1,8 +1,13 @@
 // Components loader
 const COMPONENT_BASE = new URL('.', document.currentScript.src);
+const SITE_BASE = new URL('../', COMPONENT_BASE);
 
 function resolveComponentPath(path) {
   return new URL(path, COMPONENT_BASE).toString();
+}
+
+function resolveSitePath(path) {
+  return new URL(path, SITE_BASE).toString();
 }
 
 const COMPONENTS = [
@@ -64,17 +69,17 @@ const COMPONENTS = [
   {
     name: 'drone-3d-viewer',
     target: '#drone-3d-viewer',
-    html: '/air/3D/drone-3d-viewer.html',
-    css: '/air/3D/drone-3d-viewer.css',
-    js: '/air/3D/drone-3d-viewer.js',
+    html: resolveSitePath('air/3D/drone-3d-viewer.html'),
+    css: resolveSitePath('air/3D/drone-3d-viewer.css'),
+    js: resolveSitePath('air/3D/drone-3d-viewer.js'),
     pages: ['air/index.html']
   },
   {
     name: 'lunabot-3d-viewer',
     target: '#lunabot-3d-viewer',
-    html: '/lunabotics/3D/lunabot-3d-viewer.html',
-    css: '/lunabotics/3D/lunabot-3d-viewer.css',
-    js: '/lunabotics/3D/lunabot-3d-viewer.js',
+    html: resolveSitePath('lunabotics/lunabotics_3D/lunabot-3d-viewer.html'),
+    css: resolveSitePath('lunabotics/lunabotics_3D/lunabot-3d-viewer.css'),
+    js: resolveSitePath('lunabotics/lunabotics_3D/lunabot-3d-viewer.js'),
     module: true,
     pages: ['lunabotics.html']
   }
@@ -85,7 +90,11 @@ function getCurrentPage() {
   const path = window.location.pathname;
   if (!path || path === '/') return 'index.html';
 
-  const normalized = path.startsWith('/') ? path.slice(1) : path;
+  const basePath = SITE_BASE.pathname;
+  const normalized = path.startsWith(basePath)
+    ? path.slice(basePath.length)
+    : path.replace(/^\/+/, '');
+
   if (!normalized) return 'index.html';
   if (normalized.endsWith('/')) return `${normalized}index.html`;
   return normalized;
